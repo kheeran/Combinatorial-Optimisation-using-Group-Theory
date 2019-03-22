@@ -5,7 +5,13 @@ main_array = np.zeros((8,8,8,8,8,8,8,3,3,3,3,3,3,3))
 
 print (main_array)
 
+def record (main_array, config):
+    if main_array[config] == True:
+        return
+    else
 
+
+def move_up
 
 #
 # class Cubicle:
