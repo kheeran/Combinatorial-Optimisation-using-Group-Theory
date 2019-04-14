@@ -19,7 +19,7 @@ def move_right(config):
     x6 = (int(config[10]) + 1) % 3
     return config[0:2] + config[3] + config[5] + config[4] + config[6] + config[2] + config[7:10] + str(x2) + str(x3) + config[12] + str(x5) + str(x6) + config[15]
 
-def record(order, visited, explored):
+def record(order, visited, explored, equivalence):
     config = order.pop(0)
     current = visited.pop(config)
     count = current[2]
@@ -28,7 +28,10 @@ def record(order, visited, explored):
         if visited.get(moves[move]) == None and explored.get(moves[move]) == None:
             visited[moves[move]] = (config, move, count+1)
             order.append(moves[move])
+        else:
+            equivalence.append((moves[move],(config, move, count+1)))
     explored[config] = current
+    return count
 
 
 def init_dict():
@@ -44,12 +47,36 @@ def load_obj(name ):
 
 explored = {}
 visited, order = init_dict()
+equivalence = []
+timings = []
+
 n=0
-while n < 10:
-    record(order, visited, explored)
+start = time.time()
+
+while len(order) > 0:
+# while n < 100000:
+    count = record(order, visited, explored, equivalence)
+
+    if n % 367416 == 0:
+        print (str((n//367416)*10) + "% complete")
+        runtime = int(time.time() - start)
+        timings.append(runtime)
+        print ("Runtime: " + str(runtime) + " sec(s)" )
     n += 1
 
-test = load_obj('visited')
+runtime = time.time() - start
+timings.append(runtime)
+print ("Diameter: " + str(count))
+print ("Number of Configs: " + str(n))
+print ("Total explored: " + str(len(explored)))
+print ("Remaining no. of Configs: " + str(3674160 - n))
+# print (equivalence)
+print ("Timings:")
+print (timings)
+print ("Runtime: " + str(runtime))
+
+save_obj(equivalence, "equivalence")
+save_obj(timings, "timings")
+save_obj(n, "number_of_configs")
 save_obj(explored, "explored")
 save_obj(visited, "visited")
-print (test)
