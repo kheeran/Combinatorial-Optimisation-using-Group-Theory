@@ -1,41 +1,55 @@
 import numpy as np
+import time as time
+import pickle
+
+def move_up(config):
+    return config[0:4] + config[7] + config[4:7] + config[8:16]
+
+def move_front(config):
+    x1 = (int(config[10]) + 2) % 3
+    x2 = (int(config[14]) + 1) % 3
+    x6 = (int(config[15]) + 2) % 3
+    x7 = (int(config[9]) + 1) % 3
+    return config[0] + config[2] + config [6] + config[3:6] + config[7] + config [1] + config[8] + str(x1) + str(x2) + config[11:14] + str(x6) + str(x7)
+
+def move_right(config):
+    x2 = (int(config[11]) + 2) % 3
+    x3 = (int(config[13]) + 1) % 3
+    x5 = (int(config[14]) + 2) % 3
+    x6 = (int(config[10]) + 1) % 3
+    return config[0:2] + config[3] + config[5] + config[4] + config[6] + config[2] + config[7:10] + str(x2) + str(x3) + config[12] + str(x5) + str(x6) + config[15]
+
+def record(order, visited, explored):
+    config = order.pop(0)
+    current = visited.pop(config)
+    count = current[2]
+    moves = {'U':move_up(config), 'F':move_front(config), 'R':move_right(config)}
+    for move in moves:
+        if visited.get(moves[move]) == None and explored.get(moves[move]) == None:
+            visited[moves[move]] = (config, move, count+1)
+            order.append(moves[move])
+    explored[config] = current
 
 
-main_array = np.zeros((8,8,8,8,8,8,8,3,3,3,3,3,3,3))
+def init_dict():
+    return {'0123456700000000' : ("", "", 0)}, ['0123456700000000']
 
-print (main_array)
+def save_obj(obj, name ):
+    with open('obj/'+ name + '.pkl', 'wb') as f:
+        pickle.dump(obj, f, 0)
 
-def record (main_array, config):
-    if main_array[config] == True:
-        return
-    else
+def load_obj(name ):
+    with open('obj/' + name + '.pkl', 'rb') as f:
+        return pickle.load(f)
 
+explored = {}
+visited, order = init_dict()
+n=0
+while n < 10:
+    record(order, visited, explored)
+    n += 1
 
-def move_up ((a,b,c,d,e,f,g,x1,x2,x3,x4,x5,x6,x7)):
-    (a,b,c,d,e,f,g,x1,x2,x3,x4,x5,x6,x7) = (a,b,c,d,e,f,g,x1,x2,x3,x4,x5,x6,x7)
-
-#
-# class Cubicle:
-#     def __init__(self, position, orientation):
-#         self.position = position
-#         self.orientation = orientation
-#
-#     def Up(cubicle):
-#         if (0 <= cubicle.position <= 3):
-#             cubicle.position += 1 % 4
-#
-#     def Down(cubicle):
-#         if (4 <= cubicle.position <= 7):
-#             cubicle.position = (cubicle.position + 1) % 4 + 4
-#
-#     def Right(cubicle):
-#         # TO DO
-#
-#     def Left(cubicle):
-#         # TO DO
-#
-#     def Front(cubicle):
-#         #TO DO
-#
-#     def Back(cubicle):
-#         #To DO
+test = load_obj('visited')
+save_obj(explored, "explored")
+save_obj(visited, "visited")
+print (test)
