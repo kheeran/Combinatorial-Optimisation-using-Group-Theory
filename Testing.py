@@ -36,10 +36,10 @@ for permutation in permutations:
         if visited.get(config) == None:
             missing_list.append(config)
 
-# print (missing_list[0:10])
 # first2pairs = {k: visited[k] for k in list(visited)[:2]}
 # print (first2pairs)
 
+print (missing_list[0:100])
 print (len(missing_list))
 print (len(visited))
 print (len(missing_list) + len(visited))
