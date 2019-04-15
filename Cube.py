@@ -52,7 +52,7 @@ def record(unexplored, visited, explored, equivalence, diameter_count):
 
 
 def init_dict():
-    return {'0123456700001002' : ("", "", 0)}, ['0123456700001002']
+    return {'0123456700002001' : ("", "", 0)}, ['0123456700002001']
 
 def save_obj(obj, name ):
     with open('obj/'+ name + '.pkl', 'wb') as f:
@@ -106,7 +106,7 @@ print ("Runtime: " + str(runtime))
 # save_obj(explored, "explored")
 # save_obj(equivalence, "equivalence")
 # save_obj(timings, "timings")
-save_obj(visited, "visited_missing")
+save_obj(visited, "visited_missing_2")
 
 
 
