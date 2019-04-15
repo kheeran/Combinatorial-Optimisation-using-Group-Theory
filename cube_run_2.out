@@ -1,0 +1,23 @@
+Node: node31-034
+Time: Mon Apr 15 16:10:38 BST 2019
+Job ID: 8333213.master.cm.cluster
+0% complete
+Runtime: 0.0 sec(s)
+10% complete
+Runtime: 85.25 sec(s)
+20% complete
+Runtime: 178.66 sec(s)
+30% complete
+Runtime: 242.93 sec(s)
+Diameter: 13
+[1.00000e+00 9.00000e+00 5.40000e+01 3.21000e+02 1.77300e+03 9.25800e+03
+ 4.46120e+04 1.70136e+05 3.80368e+05 3.24608e+05 2.10003e+05 6.65370e+04
+ 1.70280e+04 1.20000e+01 0.00000e+00 0.00000e+00 0.00000e+00 0.00000e+00
+ 0.00000e+00 0.00000e+00]
+Number of Configs: 1224720
+Remaining no. of Configs: 2449440
+Nodes visited: 1224720
+Total explored: 1224720
+Timings:
+[0.0, 85.25, 178.66, 242.93, 253.345370054245]
+Runtime: 253.345370054
