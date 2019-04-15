@@ -106,7 +106,7 @@ print (timings)
 print ("Runtime: " + str(runtime))
 
 # save_obj(explored, "explored")
-# save_obj(timings, "timings")
+save_obj(timings, "timings")
 save_obj(equivalence, "equivalence")
 save_obj(visited, "visited")
 
