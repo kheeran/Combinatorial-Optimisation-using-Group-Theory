@@ -42,7 +42,7 @@ def basic_moves(node):
 def record(unexplored, visited, explored, equivalence, diameter_count):
     node = unexplored.pop(0)
     diameter = visited[node][2]
-    diameter_count[diameter] += 1
+    diameter_count[int(diameter)] = diameter_count[int(diameter)] + 1
     next_configs = basic_moves(node)
     for edge in next_configs:
         if visited.get(next_configs[edge]) == None:
@@ -70,12 +70,12 @@ visited, unexplored = init_dict()
 # unexplored = ['0123456700000000', '0123745600000000', '0263457102100021', '0123745600000000', '0263457102100021']
 equivalence = []
 timings = []
-diameter_count = np.zeros(20)
+diameter_count = np.zeros(20,  np.int32)
 
 n=0
 start = time.time()
 goal = 3674160 # <U,F,R>
-# goal = 50000
+# goal = 10000
 checkpoint = goal/10
 
 # while n < goal:
@@ -93,6 +93,7 @@ runtime = time.time() - start
 timings.append(runtime)
 print ("Diameter: " + str(diameter))
 print (diameter_count)
+print (sum(diameter_count))
 print ("Number of Configs: " + str(n))
 print ("Remaining no. of Configs: " + str(goal - n))
 print ("Nodes visited: " + str(len(visited)))
