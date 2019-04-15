@@ -22,23 +22,6 @@ def move_right(config):
 def basic_moves(node):
     return {'U1' : move_up(node), 'U2': move_up(move_up(node)), 'U3': move_up(move_up(move_up(node))), 'F1':move_front(node), 'F2' : move_front(move_front(node)), 'F3' : move_front(move_front(move_front(node))), 'R1' : move_right(node), 'R2' : move_right(move_right(node)), 'R3' : move_right(move_right(move_right(node)))}
 
-# def restricted_moves(node):
-#     return { 'Rist' : move_right(move_up(move_right(move_up(move_right(node)))))}
-
-# def record(unexplored, visited, explored, equivalence):
-#     config = unexplored.pop(0)
-#     current = visited.pop(config)
-#     diameter = current[2]
-#     moves = {'U':move_up(config), 'F':move_front(config)}
-#     for move in moves:
-#         if visited.get(moves[move]) == None and explored.get(moves[move]) == None:
-#             visited[moves[move]] = (config, move, diameter+1)
-#             unexplored.append(moves[move])
-#         else:
-#             equivalence.append((moves[move],(config, move, diameter+1)))
-#     explored[config] = current
-#     return diameter
-
 def record(unexplored, visited, equivalence, diameter_count):
     node = unexplored.pop(0)
     diameter = visited[node][2]
