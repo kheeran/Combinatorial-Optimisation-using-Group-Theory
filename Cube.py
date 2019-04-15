@@ -3,7 +3,7 @@ import time as time
 import pickle
 
 def move_up(config):
-    return config[0:4] + config[7] + config[4:7] + config[8:16]
+    return config[0:4] + config[7] + config[4:7] + config[8:12] + config[15] + config[12:15]
 
 def move_front(config):
     x1 = (int(config[10]) + 2) % 3
@@ -39,7 +39,7 @@ def basic_moves(node):
 #     explored[config] = current
 #     return diameter
 
-def record(unexplored, visited, explored, equivalence, diameter_count):
+def record(unexplored, visited, equivalence, diameter_count):
     node = unexplored.pop(0)
     diameter = visited[node][2]
     diameter_count[int(diameter)] = diameter_count[int(diameter)] + 1
@@ -48,11 +48,13 @@ def record(unexplored, visited, explored, equivalence, diameter_count):
         if visited.get(next_configs[edge]) == None:
             visited[next_configs[edge]] = (node, edge, diameter+1)
             unexplored.append(next_configs[edge])
+        else:
+            equivalence.append((next_configs[edge],(node, edge, diameter+1)))
     return diameter, diameter_count
 
 
 def init_dict():
-    return {'0123456700002001' : ("", "", 0)}, ['0123456700002001']
+    return {'0123456700000000' : ("", "", 0)}, ['0123456700000000']
 
 def save_obj(obj, name ):
     with open('obj/'+ name + '.pkl', 'wb') as f:
@@ -65,7 +67,7 @@ def load_obj(name ):
 
 # MAIN RUN, CURRENTLY WRONG
 
-explored = {}
+# explored = {}
 visited, unexplored = init_dict()
 # unexplored = ['0123456700000000', '0123745600000000', '0263457102100021', '0123745600000000', '0263457102100021']
 equivalence = []
@@ -80,7 +82,7 @@ checkpoint = goal/10
 
 # while n < goal:
 while len(unexplored) > 0:
-    diameter, diameter_count = record(unexplored, visited, explored, equivalence, diameter_count)
+    diameter, diameter_count = record(unexplored, visited, equivalence, diameter_count)
 
     if n % checkpoint == 0:
         print (str((n//checkpoint)*10) + "% complete")
@@ -98,15 +100,15 @@ print ("Number of Configs: " + str(n))
 print ("Remaining no. of Configs: " + str(goal - n))
 print ("Nodes visited: " + str(len(visited)))
 print ("Total explored: " + str(len(visited) - len(unexplored)))
-# print (equivalence)
+# print (equivalence[0:10])
 print ("Timings:")
 print (timings)
 print ("Runtime: " + str(runtime))
 
 # save_obj(explored, "explored")
-# save_obj(equivalence, "equivalence")
 # save_obj(timings, "timings")
-save_obj(visited, "visited_missing_2")
+save_obj(equivalence, "equivalence")
+save_obj(visited, "visited")
 
 
 

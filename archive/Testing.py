@@ -27,9 +27,9 @@ orientations = [ '0' + str(p[0]) + str(p[1]) + str(p[2]) + str(p[3]) + str(p[4])
 
 permutations = ['0' + p for p in permute_string('1234567')]
 
-visited = load_obj("visited")
-visited_missing = load_obj("visited_missing")
-visited_missing_2 = load_obj("visited_missing_2")
+visited = load_obj("visited") # in archive now
+visited_missing = load_obj("visited_missing") # in archive now
+visited_missing_2 = load_obj("visited_missing_2") # in archive now
 
 missing_list = []
 
