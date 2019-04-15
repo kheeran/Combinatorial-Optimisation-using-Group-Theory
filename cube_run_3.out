@@ -1,0 +1,22 @@
+Node: node31-034
+Time: Mon Apr 15 16:27:49 BST 2019
+Job ID: 8333232.master.cm.cluster
+0% complete
+Runtime: 0.0 sec(s)
+10% complete
+Runtime: 88.31 sec(s)
+20% complete
+Runtime: 184.61 sec(s)
+30% complete
+Runtime: 251.76 sec(s)
+Diameter: 13
+[     1      9     54    321   1773   9258  44612 170136 380368 324608
+ 210003  66537  17028     12      0      0      0      0      0      0]
+1224720
+Number of Configs: 1224720
+Remaining no. of Configs: 2449440
+Nodes visited: 1224720
+Total explored: 1224720
+Timings:
+[0.0, 88.31, 184.61, 251.76, 263.1708950996399]
+Runtime: 263.1708951
