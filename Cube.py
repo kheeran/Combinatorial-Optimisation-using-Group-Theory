@@ -22,29 +22,33 @@ def move_right(config):
 def basic_moves(node):
     return {'U1' : move_up(node), 'U2': move_up(move_up(node)), 'U3': move_up(move_up(move_up(node))), 'F1':move_front(node), 'F2' : move_front(move_front(node)), 'F3' : move_front(move_front(move_front(node))), 'R1' : move_right(node), 'R2' : move_right(move_right(node)), 'R3' : move_right(move_right(move_right(node)))}
 
+# def restricted_moves(node):
+#     return { 'Rist' : move_right(move_up(move_right(move_up(move_right(node)))))}
+
 # def record(unexplored, visited, explored, equivalence):
 #     config = unexplored.pop(0)
 #     current = visited.pop(config)
-#     count = current[2]
+#     diameter = current[2]
 #     moves = {'U':move_up(config), 'F':move_front(config)}
 #     for move in moves:
 #         if visited.get(moves[move]) == None and explored.get(moves[move]) == None:
-#             visited[moves[move]] = (config, move, count+1)
+#             visited[moves[move]] = (config, move, diameter+1)
 #             unexplored.append(moves[move])
 #         else:
-#             equivalence.append((moves[move],(config, move, count+1)))
+#             equivalence.append((moves[move],(config, move, diameter+1)))
 #     explored[config] = current
-#     return count
+#     return diameter
 
-def record(unexplored, visited, explored, equivalence):
+def record(unexplored, visited, explored, equivalence, diameter_count):
     node = unexplored.pop(0)
-    count = visited[node][2]
+    diameter = visited[node][2]
+    diameter_count[diameter] += 1
     next_configs = basic_moves(node)
     for edge in next_configs:
         if visited.get(next_configs[edge]) == None:
-            visited[next_configs[edge]] = (node, edge, count+1)
+            visited[next_configs[edge]] = (node, edge, diameter+1)
             unexplored.append(next_configs[edge])
-    return count
+    return diameter, diameter_count
 
 
 def init_dict():
@@ -66,6 +70,7 @@ visited, unexplored = init_dict()
 # unexplored = ['0123456700000000', '0123745600000000', '0263457102100021', '0123745600000000', '0263457102100021']
 equivalence = []
 timings = []
+diameter_count = np.zeros(20)
 
 n=0
 start = time.time()
@@ -75,7 +80,7 @@ checkpoint = goal/10
 
 # while n < goal:
 while len(unexplored) > 0:
-    count = record(unexplored, visited, explored, equivalence)
+    diameter, diameter_count = record(unexplored, visited, explored, equivalence)
 
     if n % checkpoint == 0:
         print (str((n//checkpoint)*10) + "% complete")
@@ -86,7 +91,8 @@ while len(unexplored) > 0:
 
 runtime = time.time() - start
 timings.append(runtime)
-print ("Diameter: " + str(count))
+print ("Diameter: " + str(diameter))
+print (diameter_count)
 print ("Number of Configs: " + str(n))
 print ("Remaining no. of Configs: " + str(goal - n))
 print ("Nodes visited: " + str(len(visited)))
@@ -96,6 +102,7 @@ print ("Timings:")
 print (timings)
 print ("Runtime: " + str(runtime))
 
+save_obj(diameter_count, "diameter_count")
 save_obj(n, "number_of_configs")
 save_obj(explored, "explored")
 save_obj(equivalence, "equivalence")
