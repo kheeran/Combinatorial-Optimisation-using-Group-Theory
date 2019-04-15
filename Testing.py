@@ -28,12 +28,14 @@ orientations = [ '0' + str(p[0]) + str(p[1]) + str(p[2]) + str(p[3]) + str(p[4])
 permutations = ['0' + p for p in permute_string('1234567')]
 
 visited = load_obj("visited")
+visited_missing = load_obj("visited_missing")
+
 missing_list = []
 
 for permutation in permutations:
     for orientation in orientations:
         config = permutation + orientation
-        if visited.get(config) == None:
+        if visited.get(config) == None and visited_missing.get(config) == None:
             missing_list.append(config)
 
 # first2pairs = {k: visited[k] for k in list(visited)[:2]}
@@ -44,7 +46,7 @@ print (len(missing_list))
 print (len(visited))
 print (len(missing_list) + len(visited))
 
-save_obj(missing_list, "missing_list")
+save_obj(missing_list, "missing_list_2")
 
 # print (test_list)
 # print (len(permutations))
