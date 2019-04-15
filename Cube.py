@@ -53,8 +53,8 @@ timings = []
 n=0
 start = time.time()
 
-# while len(order) > 0:
-while n < 10000:
+while len(order) > 0:
+# while n < 10000:
     count = record(order, visited, explored, equivalence)
 
     if n % 367416 == 0:
