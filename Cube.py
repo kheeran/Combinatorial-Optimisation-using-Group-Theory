@@ -19,28 +19,31 @@ def move_right(config):
     x6 = (int(config[10]) + 1) % 3
     return config[0:2] + config[3] + config[5] + config[4] + config[6] + config[2] + config[7:10] + str(x2) + str(x3) + config[12] + str(x5) + str(x6) + config[15]
 
-# def record(order, visited, explored, equivalence):
-#     config = order.pop(0)
+def basic_moves(node):
+    return {'U1' : move_up(node), 'U2': move_up(move_up(node)), 'U3': move_up(move_up(move_up(node))), 'F1':move_front(node), 'F2' : move_front(move_front(node)), 'F3' : move_front(move_front(move_front(node))), 'R1' : move_right(node), 'R2' : move_right(move_right(node)), 'R3' : move_right(move_right(move_right(node)))}
+
+# def record(unexplored, visited, explored, equivalence):
+#     config = unexplored.pop(0)
 #     current = visited.pop(config)
 #     count = current[2]
 #     moves = {'U':move_up(config), 'F':move_front(config)}
 #     for move in moves:
 #         if visited.get(moves[move]) == None and explored.get(moves[move]) == None:
 #             visited[moves[move]] = (config, move, count+1)
-#             order.append(moves[move])
+#             unexplored.append(moves[move])
 #         else:
 #             equivalence.append((moves[move],(config, move, count+1)))
 #     explored[config] = current
 #     return count
 
-def record(order, visited, explored, equivalence):
-    node = order.pop(0)
+def record(unexplored, visited, explored, equivalence):
+    node = unexplored.pop(0)
     count = visited[node][2]
-    next_configs = {'U' : move_up(node), 'F':move_front(node)}
+    next_configs = basic_moves(node)
     for edge in next_configs:
-        if visited.get(edge) == None:
+        if visited.get(next_configs[edge]) == None:
             visited[next_configs[edge]] = (node, edge, count+1)
-            order.append(next_configs[edge])
+            unexplored.append(next_configs[edge])
     return count
 
 
@@ -59,25 +62,28 @@ def load_obj(name ):
 # MAIN RUN, CURRENTLY WRONG
 
 explored = {}
-visited, order = init_dict()
+visited, unexplored = init_dict()
+# unexplored = ['0123456700000000', '0123745600000000', '0263457102100021', '0123745600000000', '0263457102100021']
 equivalence = []
 timings = []
 
 n=0
 start = time.time()
 
-# goal = 367416
-goal = 174960
+goal = 367416
+# goal = 174960
 
-while n < goal:
-# while n < 10000:
-    count = record(order, visited, explored, equivalence)
+# while n < goal:
+# while n < 2:
+while len(unexplored) > 0:
+    count = record(unexplored, visited, explored, equivalence)
 
-    if n % 367416 == 0:
+    if n % goal == 0:
         print (str((n//goal)*10) + "% complete")
         runtime = int(time.time() - start)
         timings.append(runtime)
         print ("Runtime: " + str(runtime) + " sec(s)" )
+
     n += 1
 
 runtime = time.time() - start
@@ -97,7 +103,9 @@ save_obj(n, "number_of_configs")
 save_obj(explored, "explored")
 save_obj(visited, "visited")
 
-
+print (visited.values())
+print (len(visited))
+print (unexplored)
 
 
 
