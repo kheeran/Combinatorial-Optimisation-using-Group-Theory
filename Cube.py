@@ -69,43 +69,39 @@ timings = []
 
 n=0
 start = time.time()
-
-goal = 367416
-# goal = 174960
+goal = 3674160 # <U,F,R>
+# goal = 50000
+checkpoint = goal/10
 
 # while n < goal:
-# while n < 2:
 while len(unexplored) > 0:
     count = record(unexplored, visited, explored, equivalence)
 
-    if n % goal == 0:
-        print (str((n//goal)*10) + "% complete")
-        runtime = int(time.time() - start)
+    if n % checkpoint == 0:
+        print (str((n//checkpoint)*10) + "% complete")
+        runtime = round(time.time() - start,2)
         timings.append(runtime)
         print ("Runtime: " + str(runtime) + " sec(s)" )
-
     n += 1
 
 runtime = time.time() - start
 timings.append(runtime)
 print ("Diameter: " + str(count))
 print ("Number of Configs: " + str(n))
-print ("Total explored: " + str(len(explored)))
 print ("Remaining no. of Configs: " + str(goal - n))
+print ("Nodes visited: " + str(len(visited)))
+print ("Total explored: " + str(len(visited) - len(unexplored)))
 # print (equivalence)
 print ("Timings:")
 print (timings)
 print ("Runtime: " + str(runtime))
 
-save_obj(equivalence, "equivalence")
-save_obj(timings, "timings")
 save_obj(n, "number_of_configs")
 save_obj(explored, "explored")
+save_obj(equivalence, "equivalence")
+save_obj(timings, "timings")
 save_obj(visited, "visited")
 
-print (visited.values())
-print (len(visited))
-print (unexplored)
 
 
 
