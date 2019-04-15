@@ -13,4 +13,4 @@ echo Node: `hostname`
 echo Time: `date`
 echo Job ID: $PBS_JOBID
 
-python Cube.py
+python Testing.py
