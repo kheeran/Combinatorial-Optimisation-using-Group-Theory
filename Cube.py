@@ -19,18 +19,28 @@ def move_right(config):
     x6 = (int(config[10]) + 1) % 3
     return config[0:2] + config[3] + config[5] + config[4] + config[6] + config[2] + config[7:10] + str(x2) + str(x3) + config[12] + str(x5) + str(x6) + config[15]
 
+# def record(order, visited, explored, equivalence):
+#     config = order.pop(0)
+#     current = visited.pop(config)
+#     count = current[2]
+#     moves = {'U':move_up(config), 'F':move_front(config)}
+#     for move in moves:
+#         if visited.get(moves[move]) == None and explored.get(moves[move]) == None:
+#             visited[moves[move]] = (config, move, count+1)
+#             order.append(moves[move])
+#         else:
+#             equivalence.append((moves[move],(config, move, count+1)))
+#     explored[config] = current
+#     return count
+
 def record(order, visited, explored, equivalence):
-    config = order.pop(0)
-    current = visited.pop(config)
-    count = current[2]
-    moves = {'U':move_up(config), 'F':move_front(config), 'R':move_right(config)}
-    for move in moves:
-        if visited.get(moves[move]) == None and explored.get(moves[move]) == None:
-            visited[moves[move]] = (config, move, count+1)
-            order.append(moves[move])
-        else:
-            equivalence.append((moves[move],(config, move, count+1)))
-    explored[config] = current
+    node = order.pop(0)
+    count = visited[node][2]
+    next_configs = {'U' : move_up(node), 'F':move_front(node)}
+    for edge in next_configs:
+        if visited.get(edge) == None:
+            visited[next_configs[edge]] = (node, edge, count+1)
+            order.append(next_configs[edge])
     return count
 
 
@@ -45,6 +55,9 @@ def load_obj(name ):
     with open('obj/' + name + '.pkl', 'rb') as f:
         return pickle.load(f)
 
+
+# MAIN RUN, CURRENTLY WRONG
+
 explored = {}
 visited, order = init_dict()
 equivalence = []
@@ -53,12 +66,15 @@ timings = []
 n=0
 start = time.time()
 
-while len(order) > 0:
+# goal = 367416
+goal = 174960
+
+while n < goal:
 # while n < 10000:
     count = record(order, visited, explored, equivalence)
 
     if n % 367416 == 0:
-        print (str((n//367416)*10) + "% complete")
+        print (str((n//goal)*10) + "% complete")
         runtime = int(time.time() - start)
         timings.append(runtime)
         print ("Runtime: " + str(runtime) + " sec(s)" )
@@ -69,7 +85,7 @@ timings.append(runtime)
 print ("Diameter: " + str(count))
 print ("Number of Configs: " + str(n))
 print ("Total explored: " + str(len(explored)))
-print ("Remaining no. of Configs: " + str(3674160 - n))
+print ("Remaining no. of Configs: " + str(goal - n))
 # print (equivalence)
 print ("Timings:")
 print (timings)
@@ -80,3 +96,27 @@ save_obj(timings, "timings")
 save_obj(n, "number_of_configs")
 save_obj(explored, "explored")
 save_obj(visited, "visited")
+
+
+
+
+
+# TESTS
+
+# config = "0124763501210200"
+# if move_up(config) == "0124576301210200":
+#     print ("UP Correct")
+# else:
+#     print ("UP WRONG !!!!")
+#
+# config = "0123456700000000"
+# if move_front(config) == "0263457102100021":
+#     print("FRONT Correct")
+# else:
+#     print("FRONT WRONG !!!!")
+#
+# config = "0263457102100021"
+# if move_right(config) == "0235476102210121":
+#     print("RIGHT Correct")
+# else:
+#     print("RIGHT WRONG !!!!")
