@@ -80,7 +80,7 @@ checkpoint = goal/10
 
 # while n < goal:
 while len(unexplored) > 0:
-    diameter, diameter_count = record(unexplored, visited, explored, equivalence)
+    diameter, diameter_count = record(unexplored, visited, explored, equivalence, diameter_count)
 
     if n % checkpoint == 0:
         print (str((n//checkpoint)*10) + "% complete")
