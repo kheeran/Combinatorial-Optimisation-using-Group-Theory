@@ -1,0 +1,36 @@
+Node: node31-034
+Time: Tue Apr 16 13:27:24 BST 2019
+Job ID: 8335313.master.cm.cluster
+2-Generator group G=<U,F>
+()
+0% complete
+Runtime: 0.0 sec(s)
+10% complete
+Runtime: 0.13 sec(s)
+20% complete
+Runtime: 0.26 sec(s)
+30% complete
+Runtime: 0.39 sec(s)
+40% complete
+Runtime: 0.53 sec(s)
+50% complete
+Runtime: 0.66 sec(s)
+60% complete
+Runtime: 0.81 sec(s)
+70% complete
+Runtime: 0.94 sec(s)
+80% complete
+Runtime: 1.08 sec(s)
+90% complete
+Runtime: 1.22 sec(s)
+Diameter: 14
+[   1    6   18   53  148  400  910 1882 3276 4628 6198 6325 4352  941
+   22    0    0    0    0    0]
+29160
+Number of Configs: 29160
+Remaining no. of Configs: 0
+Nodes visited: 29160
+Total explored: 29160
+Timings:
+[0.0, 0.13, 0.26, 0.39, 0.53, 0.66, 0.81, 0.94, 1.08, 1.22, 1.3425018787384033]
+Runtime: 1.34250187874
