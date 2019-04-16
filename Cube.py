@@ -19,8 +19,11 @@ def move_right(config):
     x6 = (int(config[10]) + 1) % 3
     return config[0:2] + config[3] + config[5] + config[4] + config[6] + config[2] + config[7:10] + str(x2) + str(x3) + config[12] + str(x5) + str(x6) + config[15]
 
+# def basic_moves(node):
+#     return {'U1' : move_up(node), 'U2': move_up(move_up(node)), 'U3': move_up(move_up(move_up(node))), 'F1':move_front(node), 'F2' : move_front(move_front(node)), 'F3' : move_front(move_front(move_front(node))), 'R1' : move_right(node), 'R2' : move_right(move_right(node)), 'R3' : move_right(move_right(move_right(node)))}
+
 def basic_moves(node):
-    return {'U1' : move_up(node), 'U2': move_up(move_up(node)), 'U3': move_up(move_up(move_up(node))), 'F1':move_front(node), 'F2' : move_front(move_front(node)), 'F3' : move_front(move_front(move_front(node))), 'R1' : move_right(node), 'R2' : move_right(move_right(node)), 'R3' : move_right(move_right(move_right(node)))}
+    return {'U1' : move_up(node), 'U2': move_up(move_up(node)), 'U3': move_up(move_up(move_up(node))), 'F1':move_front(node), 'F2' : move_front(move_front(node)), 'F3' : move_front(move_front(move_front(node)))}
 
 def record(unexplored, visited, equivalence, diameter_count):
     node = unexplored.pop(0)
@@ -48,7 +51,10 @@ def load_obj(name ):
         return pickle.load(f)
 
 
-# MAIN RUN, CURRENTLY WRONG
+# MAIN RUN
+
+print("2-Generator group G=<U,F>")
+print()
 
 # explored = {}
 visited, unexplored = init_dict()
@@ -59,8 +65,8 @@ diameter_count = np.zeros(20,  np.int32)
 
 n=0
 start = time.time()
-goal = 3674160 # <U,F,R>
-# goal = 10000
+# goal = 3674160 # G=<U,F,R>
+goal = 29160 # G=<U,F>
 checkpoint = goal/10
 
 # while n < goal:
