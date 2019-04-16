@@ -89,6 +89,7 @@ print (timings)
 print ("Runtime: " + str(runtime))
 
 # save_obj(explored, "explored")
+save_obj(diameter_count, "diameter_count")
 save_obj(timings, "timings")
 save_obj(equivalence, "equivalence")
 save_obj(visited, "visited")
