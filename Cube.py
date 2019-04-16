@@ -54,7 +54,7 @@ def load_obj(name ):
 # MAIN RUN
 
 print("2-Generator group G=<U,F>")
-print()
+print("")
 
 # explored = {}
 visited, unexplored = init_dict()
