@@ -10,8 +10,10 @@ def load_obj(name ):
     with open(name + '.pkl', 'rb') as f:
         return pickle.load(f)
 
-
+start = time.time()
 visited = load_obj("visited")
+print ("Time to load: " + str(time.time() - start))
+
 vertices = list(visited.keys())
 edges = [(p,visited[p][0]) for p in vertices]
 
@@ -34,11 +36,14 @@ edges.pop(index)
 
 def find_move(node):
     if visited[node][2] == 0 :
-        return [""]
-    return [visited[node][1]] + find_move(visited[node][0])
+        return ""
+    return str(visited[node][1]) + find_move(visited[node][0])
 
-while n<10:
-    for v in vertices:
-        if visited[v][2] == 11:
-            n += 1
-            print (find_move(v))
+n=0
+start = time.time()
+for v in vertices:
+    if visited[v][2] == 11:
+        n += 1
+        print (find_move(v))
+        print (n)
+print ("Time for search: " + str(time.time() - start))
