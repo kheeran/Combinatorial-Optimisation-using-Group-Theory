@@ -52,7 +52,7 @@ def neighbourhood_gen_2_moves(config):
     return {'U1' : _U(config), 'U2': _U(_U(config)), 'U3': _U(_U(_U(config))), 'F1':_F(config), 'F2' : _F(_F(config)), 'F3' : _F(_F(_F(config)))}
 
 def neighbourhood_symmetry_moves(config):
-    return {'Rx1' : _Rx(config), 'Ry1' : _Ry(config), 'Rz1' : _Rz(config)}
+    return {'Rx1' : _Rx(config),'Rx2' : _Rx(_Rx(config)), 'Rx3' : _Rx(_Rx(_Rx(config))), 'Ry1' : _Ry(config), 'Ry2' : _Ry(_Ry(config)), 'Ry3' : _Ry(_Ry(_Ry(config))), 'Rz1' : _Rz(config), 'Rz2' : _Rz(_Rz(config)), 'Rz3' : _Rz(_Rz(_Rz(config)))}
 
 def record(unexplored, visited, equivalence, diameter_count):
     node = unexplored.pop(0)
