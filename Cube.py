@@ -36,26 +36,35 @@ def _L(config):
     x7 = (int(config[12]) + 2) % 3
     return config[1] + config[7] + config[2:4] + config[0] + config[5:7] + config[4] + str(x0) + str(x1) + config[10:12] + str(x4) + config[13:15] + str(x7)
 
-def basic_moves(node):
-    return {'U1' : _U(node), 'U2': _U(_U(node)), 'U3': _U(_U(_U(node))), 'F1':_F(node), 'F2' : _F(_F(node)), 'F3' : _F(_F(_F(node))), 'R1' : _R(node), 'R2' : _R(_R(node)), 'R3' : _R(_R(_R(node)))}
+def _Rx(config):
+    return _R(_L(_L(_L(config))))
 
-def gen_2_moves(node):
-    return {'U1' : _U(node), 'U2': _U(_U(node)), 'U3': _U(_U(_U(node))), 'F1':_F(node), 'F2' : _F(_F(node)), 'F3' : _F(_F(_F(node)))}
+def _Ry(config):
+    return _U(_D(_D(_D(config))))
 
-def symmetry_moves(node):
-    return {'Rx' : _R(_L(_L(_L(node)))), 'Ry' : _U(_D(_D(_D(node)))), 'Rz' : _F(_B(_B(_B(node))))}
+def _Rz(config):
+    return _F(_B(_B(_B(config))))
+
+def neighbourhood_basic_moves(config):
+    return {'U1' : _U(config), 'U2': _U(_U(config)), 'U3': _U(_U(_U(config))), 'F1':_F(config), 'F2' : _F(_F(config)), 'F3' : _F(_F(_F(config))), 'R1' : _R(config), 'R2' : _R(_R(config)), 'R3' : _R(_R(_R(config)))}
+
+def neighbourhood_gen_2_moves(config):
+    return {'U1' : _U(config), 'U2': _U(_U(config)), 'U3': _U(_U(_U(config))), 'F1':_F(config), 'F2' : _F(_F(config)), 'F3' : _F(_F(_F(config)))}
+
+def neighbourhood_symmetry_moves(config):
+    return {'Rx1' : _Rx(config), 'Ry1' : _Ry(config), 'Rz1' : _Rz(config)}
 
 def record(unexplored, visited, equivalence, diameter_count):
     node = unexplored.pop(0)
     diameter = visited[node][2]
     diameter_count[int(diameter)] = diameter_count[int(diameter)] + 1
-    next_configs = gen_2_moves(node) # basic_moves(node), gen_2_moves(node), symmetry_moves(node)
-    for edge in next_configs:
-        if visited.get(next_configs[edge]) == None:
-            visited[next_configs[edge]] = (node, edge, diameter+1)
-            unexplored.append(next_configs[edge])
+    neighbourhood = neighbourhood_symmetry_moves(node) # neighbourhood_basic_moves(node), neighbourhood_gen_2_moves(node), neighbourhood_symmetry_moves(node)
+    for edge in neighbourhood:
+        if visited.get(neighbourhood[edge]) == None:
+            visited[neighbourhood[edge]] = (node, edge, diameter+1)
+            unexplored.append(neighbourhood[edge])
         else:
-            equivalence.append((next_configs[edge],(node, edge, diameter+1)))
+            equivalence.append((neighbourhood[edge],(node, edge, diameter+1)))
     return diameter, diameter_count
 
 
