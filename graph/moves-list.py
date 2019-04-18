@@ -42,7 +42,7 @@ def find_move(node):
 n=0
 start = time.time()
 for v in vertices:
-    if visited[v][2] == 11:
+    # if visited[v][2] == 11:
         n += 1
         print (find_move(v))
         print (n)

@@ -45,6 +45,9 @@ def _Ry(config):
 def _Rz(config):
     return _F(_B(_B(_B(config))))
 
+def neighbourhood_basic_moves_all(config):
+    return {'U1' : _U(config), 'U2': _U(_U(config)), 'U3': _U(_U(_U(config))), 'F1':_F(config), 'F2' : _F(_F(config)), 'F3' : _F(_F(_F(config))), 'R1' : _R(config), 'R2' : _R(_R(config)), 'R3' : _R(_R(_R(config))), 'D1' : _D(config), 'D2': _D(_D(config)), 'D3': _D(_D(_D(config))), 'B1':_B(config), 'B2' : _B(_B(config)), 'B3' : _B(_B(_B(config))), 'L1' : _L(config), 'L2' : _L(_L(config)), 'L3' : _L(_L(_L(config))) }
+
 def neighbourhood_basic_moves(config):
     return {'U1' : _U(config), 'U2': _U(_U(config)), 'U3': _U(_U(_U(config))), 'F1':_F(config), 'F2' : _F(_F(config)), 'F3' : _F(_F(_F(config))), 'R1' : _R(config), 'R2' : _R(_R(config)), 'R3' : _R(_R(_R(config)))}
 
@@ -58,7 +61,7 @@ def record(unexplored, visited, equivalence, diameter_count):
     node = unexplored.pop(0)
     diameter = visited[node][2]
     diameter_count[int(diameter)] = diameter_count[int(diameter)] + 1
-    neighbourhood = neighbourhood_symmetry_moves(node) # neighbourhood_basic_moves(node), neighbourhood_gen_2_moves(node), neighbourhood_symmetry_moves(node)
+    neighbourhood = neighbourhood_basic_moves_all(node) # neighbourhood_basic_moves(node), neighbourhood_gen_2_moves(node), neighbourhood_symmetry_moves(node)
     for edge in neighbourhood:
         if visited.get(neighbourhood[edge]) == None:
             visited[neighbourhood[edge]] = (node, edge, diameter+1)
@@ -91,9 +94,9 @@ diameter_count = np.zeros(20,  np.int32)
 
 n=0
 start = time.time()
-# goal = 3674160 # G=<U,F,R>
+goal = 3674160*24 # G=<U,F,R>
 # goal = 29160 # G=<U,F>
-goal = 24 # G = Symmetry
+# goal = 24 # G = Symmetry
 checkpoint = goal/10
 
 # while n < goal:
