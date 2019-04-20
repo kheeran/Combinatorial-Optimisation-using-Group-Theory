@@ -85,6 +85,7 @@ def load_obj(name ):
 
 # MAIN RUN
 
+start = time.time()
 visited = load_obj("visited")
 unexplored = load_obj("unexplored")
 equivalence = load_obj("equivalence")
@@ -94,8 +95,10 @@ diameter_count = load_obj("diameter_count")
 runtime_old = load_obj("runtime")
 n=load_obj("n")
 
+print ("Time to load: " + str(time.time() - start))
+
 start = time.time()
-goal = 3674160*24 # G=<U,D,F,B,R,L> 
+goal = 3674160*24 # G=<U,D,F,B,R,L>
 # goal = 3674160 # G=<U,F,R>
 # goal = 29160 # G=<U,F>
 # goal = 24 # G = Symmetry
