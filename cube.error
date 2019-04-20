@@ -1,6 +1,1 @@
-Traceback (most recent call last):
-  File "obj/brute_force/moves-list.py", line 14, in <module>
-    visited = load_obj("visited")
-  File "obj/brute_force/moves-list.py", line 10, in load_obj
-    with open(name + '.pkl', 'rb') as f:
-IOError: [Errno 2] No such file or directory: 'visited.pkl'
+=>> PBS: job killed: walltime 86442 exceeded limit 86400
