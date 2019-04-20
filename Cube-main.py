@@ -61,7 +61,7 @@ def record(unexplored, visited, equivalence, diameter_count):
     node = unexplored.pop(0)
     diameter = visited[node][2]
     diameter_count[int(diameter)] = diameter_count[int(diameter)] + 1
-    neighbourhood = neighbourhood_basic_moves_all(node) # neighbourhood_basic_moves(node), neighbourhood_gen_2_moves(node), neighbourhood_symmetry_moves(node)
+    neighbourhood = neighbourhood_gen_2_moves(node) # neighbourhood_basic_moves(node), neighbourhood_gen_2_moves(node), neighbourhood_symmetry_moves(node)
     for edge in neighbourhood:
         if visited.get(neighbourhood[edge]) == None:
             visited[neighbourhood[edge]] = (node, edge, diameter+1)
@@ -94,8 +94,9 @@ diameter_count = np.zeros(20,  np.int32)
 
 n=0
 start = time.time()
-goal = 3674160*24 # G=<U,F,R>
-# goal = 29160 # G=<U,F>
+# goal = 3674160*24 # G=<U,D,F,B,R,L>
+# goal = 3674160 # G=<U,F,R>
+goal = 29160 # G=<U,F>
 # goal = 24 # G = Symmetry
 checkpoint = goal/10
 
