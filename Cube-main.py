@@ -57,22 +57,22 @@ def neighbourhood_gen_2_moves(config):
 def neighbourhood_symmetry_moves(config):
     return {'Rx1' : _Rx(config),'Rx2' : _Rx(_Rx(config)), 'Rx3' : _Rx(_Rx(_Rx(config))), 'Ry1' : _Ry(config), 'Ry2' : _Ry(_Ry(config)), 'Ry3' : _Ry(_Ry(_Ry(config))), 'Rz1' : _Rz(config), 'Rz2' : _Rz(_Rz(config)), 'Rz3' : _Rz(_Rz(_Rz(config)))}
 
-def record(unexplored, visited, equivalence, diameter_count):
+def record(unexplored, visited, equivalence, diameter_count, loop_iter):
     node = unexplored.pop(0)
     diameter = visited[node][2]
     diameter_count[int(diameter)] = diameter_count[int(diameter)] + 1
-    neighbourhood = neighbourhood_gen_2_moves(node) # neighbourhood_basic_moves(node), neighbourhood_gen_2_moves(node), neighbourhood_symmetry_moves(node)
+    neighbourhood = neighbourhood_basic_moves_all(node) # neighbourhood_basic_moves(node), neighbourhood_gen_2_moves(node), neighbourhood_symmetry_moves(node)
     for edge in neighbourhood:
+        loop_iter += 1
         if visited.get(neighbourhood[edge]) == None:
             visited[neighbourhood[edge]] = (node, edge, diameter+1)
             unexplored.append(neighbourhood[edge])
-        else:
-            equivalence.append((neighbourhood[edge],(node, edge, diameter+1)))
-    return diameter, diameter_count
-
+        # else:
+        #     equivalence.append((neighbourhood[edge],(node, edge, diameter+1)))
+    return diameter, diameter_count, loop_iter
 
 def init_dict():
-    return {'0123456700000000' : ("", "", 0)}, ['0123456700000000']
+    return {'0123456700000000': ('', '', 0), '4035762121211212': ('', '', 0), '7456123000000000': ('', '', 0), '1762035421211212': ('', '', 0), '1230745600000000': ('', '', 0), '2301674500000000': ('', '', 0), '3012567400000000': ('', '', 0), '3265047112122121': ('', '', 0), '5674301200000000': ('', '', 0), '4710532612122121': ('', '', 0), '0354176212122121': ('', '', 0), '3540217621211212': ('', '', 0), '5403621712122121': ('', '', 0), '5326471021211212': ('', '', 0), '6217540321211212': ('', '', 0), '7104653221211212': ('', '', 0), '4567012300000000': ('', '', 0), '6745230100000000': ('', '', 0), '6532710412122121': ('', '', 0), '1047265312122121': ('', '', 0), '7621403512122121': ('', '', 0), '2176354012122121': ('', '', 0), '2653104721211212': ('', '', 0), '0471326521211212': ('', '', 0)}, ['0123456700000000', '4035762121211212', '7456123000000000', '1762035421211212', '1230745600000000', '2301674500000000', '3012567400000000', '3265047112122121', '5674301200000000', '4710532612122121', '0354176212122121', '3540217621211212', '5403621712122121', '5326471021211212', '6217540321211212', '7104653221211212', '4567012300000000', '6745230100000000', '6532710412122121', '1047265312122121', '7621403512122121', '2176354012122121', '2653104721211212', '0471326521211212']
 
 def save_obj(obj, name ):
     with open('obj/'+ name + '.pkl', 'wb') as f:
@@ -85,9 +85,7 @@ def load_obj(name ):
 
 # MAIN RUN
 
-# explored = {}
 visited, unexplored = init_dict()
-# unexplored = ['0123456700000000', '0123745600000000', '0263457102100021', '0123745600000000', '0263457102100021']
 equivalence = []
 timings = []
 diameter_count = np.zeros(20,  np.int32)
@@ -96,15 +94,18 @@ n=0
 start = time.time()
 # goal = 3674160*24 # G=<U,D,F,B,R,L>
 # goal = 3674160 # G=<U,F,R>
-goal = 29160 # G=<U,F>
-# goal = 24 # G = Symmetry
+# goal = 29160 # G=<U,F>
+# goal = 24 # G=Symmetry
+goal = 100000
 checkpoint = goal/10
 
-# while n < goal:
-while len(unexplored) > 0:
-    diameter, diameter_count = record(unexplored, visited, equivalence, diameter_count)
+loop_iter = 0
+while n < goal:
+# while len(unexplored) > 0:
+    diameter, diameter_count, loop_iter = record(unexplored, visited, equivalence, diameter_count, loop_iter)
 
     if n % checkpoint == 0:
+        print ("Equivalence not saving")
         print (str((n//checkpoint)*10) + "% complete")
         runtime = round(time.time() - start,2)
         timings.append(runtime)
@@ -124,8 +125,9 @@ print ("Number of non-unique equivalence relations: " + str(len(equivalence)))
 print ("Timings:")
 print (timings)
 print ("Runtime: " + str(runtime))
+print ("No. of main loop iteration ratio check (1.0): " + str(loop_iter/(6*n)))
+print ("Unexplored nodes: " + str(len(unexplored)))
 
-# save_obj(explored, "explored")
 save_obj(diameter_count, "diameter_count")
 save_obj(timings, "timings")
 save_obj(equivalence, "equivalence")
