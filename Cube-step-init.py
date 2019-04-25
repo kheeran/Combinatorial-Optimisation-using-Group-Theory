@@ -128,7 +128,7 @@ print ("Runtime: " + str(runtime))
 
 print ("Step 1 Complete")
 print ("n: " + str(n))
-print ("No visited: " + str(len(visited)))
+print ("No. visited: " + str(len(visited)))
 print ("No. of main loop iteration ratio check (number of basic moves): " + str(loop_iter/(n)))
 
 # save_obj(explored, "explored")
