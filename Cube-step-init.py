@@ -85,42 +85,35 @@ def load_obj(name ):
 
 # MAIN RUN
 
+visited, unexplored = init_dict()
+equivalence = []
+timings = []
+diameter_count = np.zeros(20,  np.int32)
+
+n=0
 start = time.time()
-
-visited = load_obj("visited")
-unexplored = load_obj("unexplored")
-equivalence = load_obj("equivalence")
-timings = load_obj("timings")
-diameter_count = load_obj("diameter_count")
-runtime_old = load_obj("runtime")
-n=load_obj("n")
-loop_iter = load_obj("loop_iter")
-
-print ("Time to load: " + str(time.time() - start))
-
-start = time.time()
-goal = 3674160*24 # G=<U,D,F,B,R,L>
+# goal = 3674160*24 # G=<U,D,F,B,R,L>
 # goal = 3674160 # G=<U,F,R>
 # goal = 29160 # G=<U,F>
 # goal = 24 # G = Symmetry
-# goal = 10000
+goal = 10000
 checkpoint = goal/10
 
-# while n < goal:
-while len(unexplored) > 0:
-
+loop_iter = 0
+while n < goal*0.25:
+# while len(unexplored) > 0:
     diameter, diameter_count, loop_iter = record(unexplored, visited, equivalence, diameter_count, loop_iter)
 
     if n % checkpoint == 0:
         print ("Equivalence not saving")
         print (str((n//checkpoint)*10) + "% complete")
-        runtime = round(runtime_old + time.time() - start,2)
+        runtime = round(time.time() - start,2)
         timings.append(runtime)
         print ("Runtime: " + str(runtime) + " sec(s)" )
     n += 1
 
-runtime = runtime_old + time.time() - start
-timings.append(runtime)
+runtime = time.time() - start
+# timings.append(runtime)
 print ("Diameter: " + str(diameter))
 print (diameter_count)
 print (sum(diameter_count))
@@ -132,7 +125,11 @@ print ("Number of non-unique equivalence relations: " + str(len(equivalence)))
 print ("Timings:")
 print (timings)
 print ("Runtime: " + str(runtime))
-print ("No. of main loop iteration ratio check (1.0): " + str(loop_iter/(6*n)))
+
+print ("Step 1 Complete")
+print ("n: " + str(n))
+print ("No visited: " + str(len(visited)))
+print ("No. of main loop iteration ratio check (number of basic moves): " + str(loop_iter/(n)))
 
 # save_obj(explored, "explored")
 save_obj(diameter_count, "diameter_count")
@@ -142,7 +139,8 @@ save_obj(visited, "visited")
 save_obj(unexplored, "unexplored")
 save_obj(runtime, "runtime")
 save_obj(n, "n")
-
+save_obj(loop_iter, "loop_iter")
+save_obj(goal, "goal")
 
 
 # TESTS

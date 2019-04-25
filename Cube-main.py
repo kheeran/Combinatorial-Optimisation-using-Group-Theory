@@ -96,7 +96,7 @@ start = time.time()
 # goal = 3674160 # G=<U,F,R>
 # goal = 29160 # G=<U,F>
 # goal = 24 # G=Symmetry
-goal = 100000
+goal = 10000
 checkpoint = goal/10
 
 loop_iter = 0
@@ -125,8 +125,8 @@ print ("Number of non-unique equivalence relations: " + str(len(equivalence)))
 print ("Timings:")
 print (timings)
 print ("Runtime: " + str(runtime))
-print ("No. of main loop iteration ratio check (1.0): " + str(loop_iter/(6*n)))
-print ("Unexplored nodes: " + str(len(unexplored)))
+print ("No. of main loop iteration ratio check (number of basic moves): " + str(loop_iter/(n)))
+# print ("Unexplored nodes: " + str(len(unexplored)))
 
 save_obj(diameter_count, "diameter_count")
 save_obj(timings, "timings")
