@@ -92,15 +92,15 @@ diameter_count = np.zeros(20,  np.int32)
 
 n=0
 start = time.time()
-# goal = 3674160*24 # G=<U,D,F,B,R,L>
+goal = 3674160*24 # G=<U,D,F,B,R,L>
 # goal = 3674160 # G=<U,F,R>
 # goal = 29160 # G=<U,F>
 # goal = 24 # G = Symmetry
-goal = 10000
+# goal = 10000
 checkpoint = goal/10
 
 loop_iter = 0
-while n < goal*0.25:
+while n < goal*0.2:
 # while len(unexplored) > 0:
     diameter, diameter_count, loop_iter = record(unexplored, visited, equivalence, diameter_count, loop_iter)
 

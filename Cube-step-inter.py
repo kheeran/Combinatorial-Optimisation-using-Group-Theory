@@ -107,7 +107,7 @@ start = time.time()
 # goal = 10000
 checkpoint = goal/10
 
-while n < 1.0*goal:
+while n < 0.5*goal:
 # while len(unexplored) > 0:
 
     diameter, diameter_count, loop_iter = record(unexplored, visited, equivalence, diameter_count, loop_iter)
