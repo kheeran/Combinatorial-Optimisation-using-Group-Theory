@@ -1,3 +1,6 @@
+Node: node31-029
+Time: Fri Apr 26 12:32:07 BST 2019
+Job ID: 8360958.master.cm.cluster
 Equivalence not saving
 0% complete
 Runtime: 0.0 sec(s)
@@ -13,16 +16,16 @@ Nodes visited: 24
 Total explored: 24
 Number of non-unique equivalence relations: 0
 Timings:
-[0.0, 0.0014691352844238281]
-Runtime: 0.00146913528442
+[0.0, 0.0007939338684082031]
+Runtime: 0.000793933868408
 No. of main loop iteration ratio check (number of basic moves): 3
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Diameter: 11
-[  24   24   48  144  216  600  528  624  816 1152  624  240    0    0    0
-    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0
-    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0
-    0    0    0    0    0    0    0]
+[  24   24   48  144  216  600  528  624  816 1152  624  240    0    0
+    0    0    0    0    0    0    0    0    0    0    0    0    0    0
+    0    0    0    0    0    0    0    0    0    0    0    0    0    0
+    0    0    0    0    0    0    0    0    0    0]
 5040
 Number of Configs: 5064
 Remaining no. of Configs: 3669096
@@ -30,50 +33,49 @@ Nodes visited: 5040
 Total explored: 5040
 Number of non-unique equivalence relations: 0
 Timings:
-[0.0, 0.0014691352844238281, 0.26904916763305664]
-Runtime: 0.269049167633
+[0.0, 0.0007939338684082031, 0.22127890586853027]
+Runtime: 0.221278905869
 No. of main loop iteration ratio check (number of basic moves): 4
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Equivalence not saving
 10% complete
-Runtime: 128.36 sec(s)
+Runtime: 102.89 sec(s)
 
 Equivalence not saving
 20% complete
-Runtime: 1074.34 sec(s)
-
+Runtime: 317.09 sec(s)
 
 Equivalence not saving
 30% complete
-Runtime: 2756.78 sec(s)
+Runtime: 603.51 sec(s)
 
 Equivalence not saving
 40% complete
-Runtime: 4437.31 sec(s)
+Runtime: 915.7 sec(s)
 
 Equivalence not saving
 50% complete
-Runtime: 6099.96 sec(s)
+Runtime: 1224.96 sec(s)
 
 Equivalence not saving
 60% complete
-Runtime: 7598.42 sec(s)
+Runtime: 1507.2 sec(s)
 
 Equivalence not saving
 70% complete
-Runtime: 8800.52 sec(s)
+Runtime: 1745.27 sec(s)
 
 Equivalence not saving
 80% complete
-Runtime: 9425.3 sec(s)
+Runtime: 1934.68 sec(s)
 
 Equivalence not saving
 90% complete
-Runtime: 9584.14 sec(s)
+Runtime: 2063.28 sec(s)
 
 Equivalence not saving
 100% complete
-Runtime: 9655.34 sec(s)
+Runtime: 2123.31 sec(s)
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Diameter: 9
@@ -90,7 +92,66 @@ Nodes visited: 3674160
 Total explored: 3674160
 Number of non-unique equivalence relations: 0
 Timings:
-[0.0, 0.0014691352844238281, 0.26904916763305664, 128.36000000000001, 1074.3399999999999, 2756.7800000000002, 4437.3100000000004, 6099.96, 7598.4200000000001, 8800.5200000000004, 9425.2999999999993, 9584.1399999999994, 9655.3400000000001, 9655.6970601081848]
-Runtime: 9655.69706011
+[0.0, 0.0007939338684082031, 0.22127890586853027, 102.89, 317.09, 603.51, 915.7, 1224.96, 1507.2, 1745.27, 1934.68, 2063.28, 2123.31, 2123.614198923111]
+Runtime: 2123.61419892
 No. of main loop iteration ratio check (number of basic moves): 6
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Equivalence not saving
+110% complete
+Runtime: 3230.21 sec(s)
+
+Equivalence not saving
+120% complete
+Runtime: 4208.06 sec(s)
+
+Equivalence not saving
+130% complete
+Runtime: 5002.35 sec(s)
+
+Equivalence not saving
+140% complete
+Runtime: 5560.21 sec(s)
+
+Equivalence not saving
+150% complete
+Runtime: 5998.61 sec(s)
+
+Equivalence not saving
+160% complete
+Runtime: 6359.48 sec(s)
+
+Equivalence not saving
+170% complete
+Runtime: 6645.98 sec(s)
+
+Equivalence not saving
+180% complete
+Runtime: 6858.27 sec(s)
+
+Equivalence not saving
+190% complete
+Runtime: 6996.35 sec(s)
+
+Equivalence not saving
+200% complete
+Runtime: 7060.1 sec(s)
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Diameter: 0
+[3674160       0       0       0       0       0       0       0       0
+       0       0       0       0       0       0       0       0       0
+       0       0       0       0       0       0       0       0       0
+       0       0       0       0       0       0       0       0       0
+       0       0       0       0       0       0       0       0       0
+       0       0       0       0       0       0       0]
+3674160
+Number of Configs: 7353384
+Remaining no. of Configs: -3679224
+Nodes visited: 3674160
+Total explored: 3674160
+Number of non-unique equivalence relations: 0
+Timings:
+[0.0, 0.0007939338684082031, 0.22127890586853027, 102.89, 317.09, 603.51, 915.7, 1224.96, 1507.2, 1745.27, 1934.68, 2063.28, 2123.31, 2123.614198923111, 3230.21, 4208.06, 5002.35, 5560.21, 5998.61, 6359.48, 6645.98, 6858.27, 6996.35, 7060.1, 7060.422509908676]
+Runtime: 7060.42250991
+No. of main loop iteration ratio check (number of basic moves): 4
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

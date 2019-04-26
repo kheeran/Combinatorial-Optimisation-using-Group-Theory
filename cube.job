@@ -1,16 +1,16 @@
 #!/bin/bash
 
-#PBS -N cube
+#PBS -N cube_thistl
 #PBS -e cube.error
 #PBS -o cube.out
 #PBS -m a
 #PBS -qteaching
 #PBS -lnodes=1:ppn=16
-#PBS -lwalltime=24:00:00
+#PBS -lwalltime=6:00:00
 
 cd $PBS_O_WORKDIR
 echo Node: `hostname`
 echo Time: `date`
 echo Job ID: $PBS_JOBID
 
-python Cube.py
+python Cube-main.py
