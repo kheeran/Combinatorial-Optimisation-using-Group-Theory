@@ -190,6 +190,7 @@ visited, equivalence, timings, diameter_count, n = main_func("G0", visited, unex
 # save_obj(diameter_count, "diameter_count")
 # save_obj(timings, "timings")
 
+print ("COMPLETE!")
 
 
 
