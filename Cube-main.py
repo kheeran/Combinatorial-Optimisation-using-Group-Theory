@@ -45,28 +45,49 @@ def _Ry(config):
 def _Rz(config):
     return _F(_B(_B(_B(config))))
 
+# def neighbourhoods(config, select):
+#
+#     if select == "basic_moves_all":
+#         return {'U1' : _U(config), 'U2': _U(_U(config)), 'U3': _U(_U(_U(config))), 'F1':_F(config), 'F2' : _F(_F(config)), 'F3' : _F(_F(_F(config))), 'R1' : _R(config), 'R2' : _R(_R(config)), 'R3' : _R(_R(_R(config))), 'D1' : _D(config), 'D2': _D(_D(config)), 'D3': _D(_D(_D(config))), 'B1':_B(config), 'B2' : _B(_B(config)), 'B3' : _B(_B(_B(config))), 'L1' : _L(config), 'L2' : _L(_L(config)), 'L3' : _L(_L(_L(config))) }
+#
+#     if select == "basic_moves" or select == "G0":
+#         return {'U1' : _U(config), 'U2': _U(_U(config)), 'U3': _U(_U(_U(config))), 'F1':_F(config), 'F2' : _F(_F(config)), 'F3' : _F(_F(_F(config))), 'R1' : _R(config), 'R2' : _R(_R(config)), 'R3' : _R(_R(_R(config)))}
+#
+#     if select == "G1":
+#         return {'U2': _U(_U(config)), 'F1':_F(config), 'F2' : _F(_F(config)), 'F3' : _F(_F(_F(config))), 'R1' : _R(config), 'R2' : _R(_R(config)), 'R3' : _R(_R(_R(config)))}
+#
+#     if select == "G2":
+#         return {'U2': _U(_U(config)),'F2' : _F(_F(config)),'R1' : _R(config), 'R2' : _R(_R(config)), 'R3' : _R(_R(_R(config)))}
+#
+#     if select == "G3":
+#         return {'U2': _U(_U(config)),'F2' : _F(_F(config)),'R2' : _R(_R(config))}
+#
+#     if select == "gen_2_moves":
+#         return {'U1' : _U(config), 'U2': _U(_U(config)), 'U3': _U(_U(_U(config))), 'F1':_F(config), 'F2' : _F(_F(config)), 'F3' : _F(_F(_F(config)))}
+#
+#     if select == "symmetry_moves":
+#         return {'Rx1' : _Rx(config),'Rx2' : _Rx(_Rx(config)), 'Rx3' : _Rx(_Rx(_Rx(config))), 'Ry1' : _Ry(config), 'Ry2' : _Ry(_Ry(config)), 'Ry3' : _Ry(_Ry(_Ry(config))), 'Rz1' : _Rz(config), 'Rz2' : _Rz(_Rz(config)), 'Rz3' : _Rz(_Rz(_Rz(config)))}
+
 def neighbourhoods(config, select):
 
-    if select == "basic_moves_all":
+    if select == "G0":
         return {'U1' : _U(config), 'U2': _U(_U(config)), 'U3': _U(_U(_U(config))), 'F1':_F(config), 'F2' : _F(_F(config)), 'F3' : _F(_F(_F(config))), 'R1' : _R(config), 'R2' : _R(_R(config)), 'R3' : _R(_R(_R(config))), 'D1' : _D(config), 'D2': _D(_D(config)), 'D3': _D(_D(_D(config))), 'B1':_B(config), 'B2' : _B(_B(config)), 'B3' : _B(_B(_B(config))), 'L1' : _L(config), 'L2' : _L(_L(config)), 'L3' : _L(_L(_L(config))) }
 
-    if select == "basic_moves" or select == "G0":
-        return {'U1' : _U(config), 'U2': _U(_U(config)), 'U3': _U(_U(_U(config))), 'F1':_F(config), 'F2' : _F(_F(config)), 'F3' : _F(_F(_F(config))), 'R1' : _R(config), 'R2' : _R(_R(config)), 'R3' : _R(_R(_R(config)))}
-
     if select == "G1":
-        return {'U2': _U(_U(config)), 'F1':_F(config), 'F2' : _F(_F(config)), 'F3' : _F(_F(_F(config))), 'R1' : _R(config), 'R2' : _R(_R(config)), 'R3' : _R(_R(_R(config)))}
+        return {'U2': _U(_U(config)), 'F1':_F(config), 'F2' : _F(_F(config)), 'F3' : _F(_F(_F(config))), 'R1' : _R(config), 'R2' : _R(_R(config)), 'R3' : _R(_R(_R(config))), 'D2': _D(_D(config)), 'B1':_B(config), 'B2' : _B(_B(config)), 'B3' : _B(_B(_B(config))), 'L1' : _L(config), 'L2' : _L(_L(config)), 'L3' : _L(_L(_L(config))) }
 
     if select == "G2":
-        return {'U2': _U(_U(config)),'F2' : _F(_F(config)),'R1' : _R(config), 'R2' : _R(_R(config)), 'R3' : _R(_R(_R(config)))}
+        return {'U2': _U(_U(config)), 'F2' : _F(_F(config)), 'R1' : _R(config), 'R2' : _R(_R(config)), 'R3' : _R(_R(_R(config))), 'D2': _D(_D(config)), 'B2' : _B(_B(config)), 'L1' : _L(config), 'L2' : _L(_L(config)), 'L3' : _L(_L(_L(config))) }
 
     if select == "G3":
-        return {'U2': _U(_U(config)),'F2' : _F(_F(config)),'R2' : _R(_R(config))}
+        return {'U2': _U(_U(config)), 'F2' : _F(_F(config)), 'R2' : _R(_R(config)), 'D2': _D(_D(config)), 'B2' : _B(_B(config)), 'L2' : _L(_L(config))}
 
     if select == "gen_2_moves":
         return {'U1' : _U(config), 'U2': _U(_U(config)), 'U3': _U(_U(_U(config))), 'F1':_F(config), 'F2' : _F(_F(config)), 'F3' : _F(_F(_F(config)))}
 
     if select == "symmetry_moves":
         return {'Rx1' : _Rx(config),'Rx2' : _Rx(_Rx(config)), 'Rx3' : _Rx(_Rx(_Rx(config))), 'Ry1' : _Ry(config), 'Ry2' : _Ry(_Ry(config)), 'Ry3' : _Ry(_Ry(_Ry(config))), 'Rz1' : _Rz(config), 'Rz2' : _Rz(_Rz(config)), 'Rz3' : _Rz(_Rz(_Rz(config)))}
+
 
 def record(unexplored, visited, equivalence, diameter_count, loop_iter, select):
     node = unexplored.pop(0)
