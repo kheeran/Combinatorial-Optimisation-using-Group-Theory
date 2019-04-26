@@ -167,7 +167,7 @@ def main_func(select, visited, unexplored, equivalence, timings, diameter_count,
 
 # MAIN RUN
 
-visited, unexplored = init_dict("")
+visited, unexplored = init_dict("all")
 equivalence = []
 timings = []
 diameter_count = np.zeros(52,  np.int32)
