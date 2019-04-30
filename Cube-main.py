@@ -197,12 +197,14 @@ diameter_count = np.zeros(52,  np.int32)
 
 visited, equivalence, timings, diameter_count, n = main_func("G1", visited, unexplored, equivalence, timings, diameter_count, loop_iter, n, start)
 
-# visited_G1 = visited
-# diameter_count_G1 = diameter_count
-visited, unexplored = init_dict_visited(visited)
-diameter_count = np.zeros(52,  np.int32)
+if sum(diameter_count) < goal:
+    # visited_G1 = visited
+    # diameter_count_G1 = diameter_count
+    visited, unexplored = init_dict_visited(visited)
+    diameter_count = np.zeros(52,  np.int32)
 
-visited, equivalence, timings, diameter_count, n = main_func("G0", visited, unexplored, equivalence, timings, diameter_count, loop_iter, n, start)
+    visited, equivalence, timings, diameter_count, n = main_func("G0", visited, unexplored, equivalence, timings, diameter_count, loop_iter, n, start)
+
 
 
 # Saving Objects
