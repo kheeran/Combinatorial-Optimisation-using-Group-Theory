@@ -22,23 +22,28 @@ def parseinput(user_input):
         raise Exception("User input invalid. The input was: " + user_input)
 
 
+# MAIN FUNCTIONS
+def find_initial_nodes():
+    visited = load_obj("visited")
+
+    print ("FINDING THE INITIAL NODES--\n")
+
+    init_dict = {}
+    init_array = []
+    for k in visited.keys():
+        init_dict[k] = ("", "", 0)
+        init_array.append(k)
+
+
+    print ("Initial dictionary:")
+    print (init_dict)
+    print()
+
+    print ("Initial array:")
+    print (init_array)
+
 # MAIN
 
+equivalence = load_obj("equivalence")
 
-visited = load_obj("visited")
-
-print ("FINDING THE INITIAL NODES--\n")
-
-init_dict = {}
-init_array = []
-for k in visited.keys():
-    init_dict[k] = ("", "", 0)
-    init_array.append(k)
-
-
-print ("Initial dictionary:")
-print (init_dict)
-print()
-
-print ("Initial array:")
-print (init_array)
+len(equivalence)
