@@ -45,64 +45,48 @@ def _Ry(config):
 def _Rz(config):
     return _F(_B(_B(_B(config))))
 
-# def neighbourhoods(config, select):
-#
-#     if select == "basic_moves_all":
-#         return {'U1' : _U(config), 'U2': _U(_U(config)), 'U3': _U(_U(_U(config))), 'F1':_F(config), 'F2' : _F(_F(config)), 'F3' : _F(_F(_F(config))), 'R1' : _R(config), 'R2' : _R(_R(config)), 'R3' : _R(_R(_R(config))), 'D1' : _D(config), 'D2': _D(_D(config)), 'D3': _D(_D(_D(config))), 'B1':_B(config), 'B2' : _B(_B(config)), 'B3' : _B(_B(_B(config))), 'L1' : _L(config), 'L2' : _L(_L(config)), 'L3' : _L(_L(_L(config))) }
-#
-#     if select == "basic_moves" or select == "G0":
-#         return {'U1' : _U(config), 'U2': _U(_U(config)), 'U3': _U(_U(_U(config))), 'F1':_F(config), 'F2' : _F(_F(config)), 'F3' : _F(_F(_F(config))), 'R1' : _R(config), 'R2' : _R(_R(config)), 'R3' : _R(_R(_R(config)))}
-#
-#     if select == "G1":
-#         return {'U2': _U(_U(config)), 'F1':_F(config), 'F2' : _F(_F(config)), 'F3' : _F(_F(_F(config))), 'R1' : _R(config), 'R2' : _R(_R(config)), 'R3' : _R(_R(_R(config)))}
-#
-#     if select == "G2":
-#         return {'U2': _U(_U(config)),'F2' : _F(_F(config)),'R1' : _R(config), 'R2' : _R(_R(config)), 'R3' : _R(_R(_R(config)))}
-#
-#     if select == "G3":
-#         return {'U2': _U(_U(config)),'F2' : _F(_F(config)),'R2' : _R(_R(config))}
-#
-#     if select == "gen_2_moves":
-#         return {'U1' : _U(config), 'U2': _U(_U(config)), 'U3': _U(_U(_U(config))), 'F1':_F(config), 'F2' : _F(_F(config)), 'F3' : _F(_F(_F(config)))}
-#
-#     if select == "symmetry_moves":
-#         return {'Rx1' : _Rx(config),'Rx2' : _Rx(_Rx(config)), 'Rx3' : _Rx(_Rx(_Rx(config))), 'Ry1' : _Ry(config), 'Ry2' : _Ry(_Ry(config)), 'Ry3' : _Ry(_Ry(_Ry(config))), 'Rz1' : _Rz(config), 'Rz2' : _Rz(_Rz(config)), 'Rz3' : _Rz(_Rz(_Rz(config)))}
-
 def neighbourhoods(config, select):
 
-    if select == "G0":
+    if select == "basic_moves_all":
         return {'U1' : _U(config), 'U2': _U(_U(config)), 'U3': _U(_U(_U(config))), 'F1':_F(config), 'F2' : _F(_F(config)), 'F3' : _F(_F(_F(config))), 'R1' : _R(config), 'R2' : _R(_R(config)), 'R3' : _R(_R(_R(config))), 'D1' : _D(config), 'D2': _D(_D(config)), 'D3': _D(_D(_D(config))), 'B1':_B(config), 'B2' : _B(_B(config)), 'B3' : _B(_B(_B(config))), 'L1' : _L(config), 'L2' : _L(_L(config)), 'L3' : _L(_L(_L(config))) }
 
+    if select == "basic_moves" or select == "G0":
+        return {'U1' : _U(config), 'U2': _U(_U(config)), 'U3': _U(_U(_U(config))), 'F1':_F(config), 'F2' : _F(_F(config)), 'F3' : _F(_F(_F(config))), 'R1' : _R(config), 'R2' : _R(_R(config)), 'R3' : _R(_R(_R(config)))}
+
     if select == "G1":
-        return {'U2': _U(_U(config)), 'F1':_F(config), 'F2' : _F(_F(config)), 'F3' : _F(_F(_F(config))), 'R1' : _R(config), 'R2' : _R(_R(config)), 'R3' : _R(_R(_R(config))), 'D2': _D(_D(config)), 'B1':_B(config), 'B2' : _B(_B(config)), 'B3' : _B(_B(_B(config))), 'L1' : _L(config), 'L2' : _L(_L(config)), 'L3' : _L(_L(_L(config))) }
+        return {'U2': _U(_U(config)), 'F1':_F(config), 'F2' : _F(_F(config)), 'F3' : _F(_F(_F(config))), 'R1' : _R(config), 'R2' : _R(_R(config)), 'R3' : _R(_R(_R(config)))}
 
     if select == "G2":
-        return {'U2': _U(_U(config)), 'F2' : _F(_F(config)), 'R1' : _R(config), 'R2' : _R(_R(config)), 'R3' : _R(_R(_R(config))), 'D2': _D(_D(config)), 'B2' : _B(_B(config)), 'L1' : _L(config), 'L2' : _L(_L(config)), 'L3' : _L(_L(_L(config))) }
+        return {'U2': _U(_U(config)),'F2' : _F(_F(config)),'R1' : _R(config), 'R2' : _R(_R(config)), 'R3' : _R(_R(_R(config)))}
 
     if select == "G3":
-        return {'U2': _U(_U(config)), 'F2' : _F(_F(config)), 'R2' : _R(_R(config)), 'D2': _D(_D(config)), 'B2' : _B(_B(config)), 'L2' : _L(_L(config))}
+        return {'U2': _U(_U(config)),'F2' : _F(_F(config)),'R2' : _R(_R(config))}
 
     if select == "gen_2_moves":
         return {'U1' : _U(config), 'U2': _U(_U(config)), 'U3': _U(_U(_U(config))), 'F1':_F(config), 'F2' : _F(_F(config)), 'F3' : _F(_F(_F(config)))}
 
+    if select == "gen_2_moves_relations":
+       return {'U' : _U(config), 'F':_F(config)}
+
     if select == "symmetry_moves":
-        return {'Rx1' : _Rx(config),'Rx2' : _Rx(_Rx(config)), 'Rx3' : _Rx(_Rx(_Rx(config))), 'Ry1' : _Ry(config), 'Ry2' : _Ry(_Ry(config)), 'Ry3' : _Ry(_Ry(_Ry(config))), 'Rz1' : _Rz(config), 'Rz2' : _Rz(_Rz(config)), 'Rz3' : _Rz(_Rz(_Rz(config)))}
+        return {'X1' : _Rx(config),'X2' : _Rx(_Rx(config)), 'X3' : _Rx(_Rx(_Rx(config))), 'Y1' : _Ry(config), 'Y2' : _Ry(_Ry(config)), 'Y3' : _Ry(_Ry(_Ry(config))), 'Z1' : _Rz(config), 'Z2' : _Rz(_Rz(config)), 'Z3' : _Rz(_Rz(_Rz(config)))}
 
-
-def record(unexplored, visited, equivalence, diameter_count, loop_iter, select):
-    node = unexplored.pop(0)
-    diameter = visited[node][2]
-    diameter_count[int(diameter)] = diameter_count[int(diameter)] + 1
-    neighbourhood = neighbourhoods(node, select) # neighbourhood_basic_moves(node), neighbourhood_gen_2_moves(node), neighbourhood_symmetry_moves(node)
-    for edge in neighbourhood:
-        loop_iter += 1
-        if visited.get(neighbourhood[edge]) == None:
-            visited[neighbourhood[edge]] = (node, edge, diameter+1)
-            unexplored.append(neighbourhood[edge])
-        # else:
-        #     equivalence.append((neighbourhood[edge],(node, edge, diameter+1)))
-    return diameter, diameter_count, loop_iter
-
+## INCLUDING ALL 6 BASIC MOVES WHICH NEVER RUNS!
+#
+# def neighbourhoods(config, select):
+#
+#     if select == "G0":
+#         return {'U1' : _U(config), 'U2': _U(_U(config)), 'U3': _U(_U(_U(config))), 'F1':_F(config), 'F2' : _F(_F(config)), 'F3' : _F(_F(_F(config))), 'R1' : _R(config), 'R2' : _R(_R(config)), 'R3' : _R(_R(_R(config))), 'D1' : _D(config), 'D2': _D(_D(config)), 'D3': _D(_D(_D(config))), 'B1':_B(config), 'B2' : _B(_B(config)), 'B3' : _B(_B(_B(config))), 'L1' : _L(config), 'L2' : _L(_L(config)), 'L3' : _L(_L(_L(config))) }
+#
+#     if select == "G1":
+#         return {'U2': _U(_U(config)), 'F1':_F(config), 'F2' : _F(_F(config)), 'F3' : _F(_F(_F(config))), 'R1' : _R(config), 'R2' : _R(_R(config)), 'R3' : _R(_R(_R(config))), 'D2': _D(_D(config)), 'B1':_B(config), 'B2' : _B(_B(config)), 'B3' : _B(_B(_B(config))), 'L1' : _L(config), 'L2' : _L(_L(config)), 'L3' : _L(_L(_L(config))) }
+#
+#     if select == "G2":
+#         return {'U2': _U(_U(config)), 'F2' : _F(_F(config)), 'R1' : _R(config), 'R2' : _R(_R(config)), 'R3' : _R(_R(_R(config))), 'D2': _D(_D(config)), 'B2' : _B(_B(config)), 'L1' : _L(config), 'L2' : _L(_L(config)), 'L3' : _L(_L(_L(config))) }
+#
+#     if select == "G3":
+#         return {'U2': _U(_U(config)), 'F2' : _F(_F(config)), 'R2' : _R(_R(config)), 'D2': _D(_D(config)), 'B2' : _B(_B(config)), 'L2' : _L(_L(config))}
+#
 
 def init_dict(select):
     if select == "all":
@@ -126,7 +110,50 @@ def load_obj(name ):
     with open('obj/' + name + '.pkl', 'rb') as f:
         return pickle.load(f)
 
-def main_func(select, visited, unexplored, equivalence, timings, diameter_count, loop_iter, n, start):
+# SIMPLIFYING THE DEFINING RELATIONS ALGO
+
+def equivalence_relations(moves_set, visited, equivalence, neighbourhood, node, edge):
+
+    if "relations" in moves_set:
+        jump = 1
+    else:
+        jump = 2
+
+    m_1 = visited[neighbourhood[edge]][1]
+    m_2 = visited[node][1] + edge
+
+    n = 0
+    for j in range(0,len(m_1), jump):
+        if m_1[j:j+jump] == m_2[j:j+jump]:
+            n += jump
+        else:
+            break
+    if equivalence.get(m_1[n:]) == None:
+        equivalence[m_1[n:]] = [m_2[n:]]
+    else:
+        equivalence[m_1[n:]].append(m_2[n:])
+
+
+# MAIN SEARCH ALGO ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+def record(unexplored, visited, equivalence, diameter_count, loop_iter, select):
+    node = unexplored.pop(0)
+    diameter = visited[node][2]
+    diameter_count[int(diameter)] = diameter_count[int(diameter)] + 1
+    neighbourhood = neighbourhoods(node, select) # neighbourhood_basic_moves(node), neighbourhood_gen_2_moves(node), neighbourhood_symmetry_moves(node)
+    for edge in neighbourhood:
+        loop_iter += 1
+        if visited.get(neighbourhood[edge]) == None:
+            visited[neighbourhood[edge]] = (node, visited[node][1] + edge, diameter+1)
+            unexplored.append(neighbourhood[edge])
+        else:
+            equivalence_relations(moves_set, visited, equivalence, neighbourhood, node, edge)
+
+    return diameter, diameter_count, loop_iter
+
+# FULL SEARCH EXEC ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+def full_search(select, visited, unexplored, equivalence, timings, diameter_count, loop_iter, n, start):
 
     checkpoint = goal/10
 
@@ -137,7 +164,7 @@ def main_func(select, visited, unexplored, equivalence, timings, diameter_count,
         # PROGRESS BAR
 
         if n % checkpoint == 0:
-            print ("Equivalence not saving")
+            # print ("Equivalence not saving")
             print (str((n//checkpoint)*10) + "% complete")
             runtime = round(time.time() - start,2)
             timings.append(runtime)
@@ -155,7 +182,7 @@ def main_func(select, visited, unexplored, equivalence, timings, diameter_count,
     print ("Remaining no. of Configs: " + str(goal - n))
     print ("Nodes visited: " + str(len(visited)))
     print ("Total explored: " + str(len(visited) - len(unexplored)))
-    print ("Number of non-unique equivalence relations: " + str(len(equivalence)))
+    print ("Number of shortest moves with equivalence relations: " + str(len(equivalence)))
     print ("Timings:")
     print (timings)
     print ("Runtime: " + str(runtime))
@@ -163,57 +190,115 @@ def main_func(select, visited, unexplored, equivalence, timings, diameter_count,
     # print ("Unexplored nodes: " + str(len(unexplored)))
     print ("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 
-    return visited, equivalence, timings, diameter_count, n
+    return timings, diameter_count, n
 
-# MAIN RUN
 
-visited, unexplored = init_dict("all")
-equivalence = []
-timings = []
-diameter_count = np.zeros(52,  np.int32)
-loop_iter = 0
-n=0
-start = time.time()
+# MAIN THISTLEWAITE ALGO ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-# goal = 3674160*24 # G=<U,D,F,B,R,L>
-goal = 3674160 # G=<U,F,R>
-# goal = 29160 # G=<U,F>
-# goal = 24 # G=Symmetry
-# goal = 10000
+def thistlewaite_algo(goal, save, root):
+    visited, unexplored = init_dict(root)
+    equivalence = []
+    timings = []
+    diameter_count = np.zeros(50,  np.int32)
+    loop_iter = 0
+    n=0
+    start = time.time()
 
-visited, equivalence, timings, diameter_count, n = main_func("G3", visited, unexplored, equivalence, timings, diameter_count, loop_iter, n, start)
+    timings, diameter_count, n = full_search("G3", visited, unexplored, equivalence, timings, diameter_count, loop_iter, n, start)
 
-# visited_G3 = visited
-# diameter_count_G3 = diameter_count
-visited, unexplored = init_dict_visited(visited)
-diameter_count = np.zeros(52,  np.int32)
-
-visited, equivalence, timings, diameter_count, n = main_func("G2", visited, unexplored, equivalence, timings, diameter_count, loop_iter, n, start)
-
-# visited_G2 = visited
-# diameter_count_G2 = diameter_count
-visited, unexplored = init_dict_visited(visited)
-diameter_count = np.zeros(52,  np.int32)
-
-visited, equivalence, timings, diameter_count, n = main_func("G1", visited, unexplored, equivalence, timings, diameter_count, loop_iter, n, start)
-
-if sum(diameter_count) < goal:
-    # visited_G1 = visited
-    # diameter_count_G1 = diameter_count
+    # visited_G3 = visited
+    # diameter_count_G3 = diameter_count
     visited, unexplored = init_dict_visited(visited)
     diameter_count = np.zeros(52,  np.int32)
 
-    visited, equivalence, timings, diameter_count, n = main_func("G0", visited, unexplored, equivalence, timings, diameter_count, loop_iter, n, start)
+    timings, diameter_count, n = full_search("G2", visited, unexplored, equivalence, timings, diameter_count, loop_iter, n, start)
+
+    # visited_G2 = visited
+    # diameter_count_G2 = diameter_count
+    visited, unexplored = init_dict_visited(visited)
+    diameter_count = np.zeros(52,  np.int32)
+
+    timings, diameter_count, n = full_search("G1", visited, unexplored, equivalence, timings, diameter_count, loop_iter, n, start)
+
+    if sum(diameter_count) < goal:
+        # visited_G1 = visited
+        # diameter_count_G1 = diameter_count
+        visited, unexplored = init_dict_visited(visited)
+        diameter_count = np.zeros(52,  np.int32)
+
+        timings, diameter_count, n = full_search("G0", visited, unexplored, equivalence, timings, diameter_count, loop_iter, n, start)
+
+        # Saving Objects
+        if save:
+            save_obj(visited, "visited")
+            save_obj(diameter_count, "diameter_count")
+            save_obj(timings, "timings")
+
+        print ("COMPLETE!")
+
+# MAIN BRUTE FORCE ALGO with EQUIVALENCE RELATIONS
+
+def brute_force_relations(goal, save, root, moves_set):
+
+    visited, unexplored = init_dict(root)
+    equivalence = {}
+    timings = []
+    diameter_count = np.zeros(50,  np.int32)
+    loop_iter = 0
+    n=0
+    start = time.time()
+
+    timings, diameter_count, n = full_search(moves_set, visited, unexplored, equivalence, timings, diameter_count, loop_iter, n, start)
+
+    keys = list(equivalence.keys())
+    unique_relations = 0
+    for k in keys:
+        equivalence[k] = set(equivalence[k])
+        unique_relations += len(equivalence[k])
+        # print(k + "~" + str(equivalence[k]))
+
+    print ("|R| = " + str(unique_relations))
+
+    # Saving Objects
+    if save:
+        save_obj(visited, "visited")
+        save_obj(equivalence, "equivalence")
+        save_obj(diameter_count, "diameter_count")
+        save_obj(timings, "timings")
+
+    print ("COMPLETE!")
 
 
+# MAIN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-# Saving Objects
-# save_obj(visited, "visited")
-# save_obj(equivalence, "equivalence")
-# save_obj(diameter_count, "diameter_count")
-# save_obj(timings, "timings")
+# G=<U,D,F,B,R,L>
+# moves_set = "basic_moves_all"
+# goal = 3674160*24
+# root = "all"
 
-print ("COMPLETE!")
+# G=<U,F,R>
+moves_set = "basic_moves"
+goal = 3674160
+root = ""
+
+# # G = <U,F>
+# moves_set = "gen_2_moves_relations"
+# goal = 29160
+# root = ""
+
+# # G=Symmetry
+# moves_set = "symmetry_moves"
+# goal = 24
+# root = ""
+
+# Save objects for re-use?
+save = True
+
+# thistlewaite_algo(goal, save, root)
+
+brute_force_relations(goal, save, root, moves_set)
+
+
 
 
 
