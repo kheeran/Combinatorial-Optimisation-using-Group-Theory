@@ -43,7 +43,8 @@ def find_initial_nodes():
     print (init_array)
 
 # MAIN
-
+start = time.time()
 equivalence = load_obj("equivalence")
+print ("Time to load: " + str(time.time() - start))
 
 len(equivalence)
