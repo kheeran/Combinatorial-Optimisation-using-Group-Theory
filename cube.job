@@ -1,12 +1,12 @@
 #!/bin/bash
 
-#PBS -N cube_thistl
+#PBS -N cube
 #PBS -e cube.error
 #PBS -o cube.out
 #PBS -m a
 #PBS -qteaching
-#PBS -lnodes=1:ppn=16
-#PBS -lwalltime=6:00:00
+#PBS -lnodes=1:ppn=1
+#PBS -lwalltime=1:30:00
 
 cd $PBS_O_WORKDIR
 echo Node: `hostname`

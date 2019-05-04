@@ -1,0 +1,54 @@
+Node: node31-034
+Time: Sat May 4 01:03:32 BST 2019
+Job ID: 8380737.master.cm.cluster
+0% complete
+Runtime: 0.0 sec(s)
+
+10% complete
+Runtime: 153.12 sec(s)
+
+20% complete
+Runtime: 472.02 sec(s)
+
+30% complete
+Runtime: 871.61 sec(s)
+
+40% complete
+Runtime: 1293.91 sec(s)
+
+50% complete
+Runtime: 1694.45 sec(s)
+
+60% complete
+Runtime: 2045.47 sec(s)
+
+70% complete
+Runtime: 2337.67 sec(s)
+
+80% complete
+Runtime: 2557.12 sec(s)
+
+90% complete
+Runtime: 2703.99 sec(s)
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Diameter: 11
+[      1       9      54     321    1847    9992   50136  227536  870072
+ 1887748  623800    2644       0       0       0       0       0       0
+       0       0       0       0       0       0       0       0       0
+       0       0       0       0       0       0       0       0       0
+       0       0       0       0       0       0       0       0       0
+       0       0       0       0       0]
+3674160
+Number of Configs: 3674160
+Remaining no. of Configs: 0
+Nodes visited: 3674160
+Total explored: 3674160
+Number of shortest moves with equivalence relations: 3432555
+Timings:
+[0.0, 153.12, 472.02, 871.61, 1293.91, 1694.45, 2045.47, 2337.67, 2557.12, 2703.99, 2776.749069213867]
+Runtime: 2776.74906921
+No. of main loop iteration ratio check (number of basic moves): 9
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+|R| = 16225665
+COMPLETE!
