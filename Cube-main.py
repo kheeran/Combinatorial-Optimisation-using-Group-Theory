@@ -280,7 +280,7 @@ def brute_force_relations(goal, save, root, moves_set):
 # root = "all"
 
 # G=<U,F,R>
-moves_set = "basic_moves"
+moves_set = "basic_moves_relations"
 goal = 3674160
 root = ""
 
