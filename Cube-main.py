@@ -295,7 +295,7 @@ root = ""
 # root = ""
 
 # Save objects for re-use?
-save = True
+save = False
 
 # thistlewaite_algo(goal, save, root)
 
