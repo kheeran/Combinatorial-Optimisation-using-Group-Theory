@@ -53,6 +53,9 @@ def neighbourhoods(config, select):
     if select == "basic_moves" or select == "G0":
         return {'U1' : _U(config), 'U2': _U(_U(config)), 'U3': _U(_U(_U(config))), 'F1':_F(config), 'F2' : _F(_F(config)), 'F3' : _F(_F(_F(config))), 'R1' : _R(config), 'R2' : _R(_R(config)), 'R3' : _R(_R(_R(config)))}
 
+    if select == "basic_moves_relations":
+        return {'U' : _U(config), 'F':_F(config), 'R' : _R(config)}
+
     if select == "G1":
         return {'U2': _U(_U(config)), 'F1':_F(config), 'F2' : _F(_F(config)), 'F3' : _F(_F(_F(config))), 'R1' : _R(config), 'R2' : _R(_R(config)), 'R3' : _R(_R(_R(config)))}
 
