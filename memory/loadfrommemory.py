@@ -2,7 +2,7 @@ import pickle
 import time as time
 
 def load_obj(name):
-    user_input = input("Do you want to load from\n" + "A)2_generator\n" + "B)symmetry\n" + "C)brute_force\n" + "[A/B/C]?\n")
+    user_input = input("Do you want to load from\n" + "A)2_generator\n" + "B)symmetry\n" + "C)brute_force_relations\n" + "[A/B/C]?\n")
     folder = parseinput(user_input)
     with open(folder + name + '.pkl', 'rb') as f:
         return pickle.load(f)
@@ -15,7 +15,7 @@ def parseinput(user_input):
     elif user_input == "C":
         user_confirmation = input("Are you sure? [Y/N]?\n")
         if user_confirmation == "Y":
-            return "./brute_force/"
+            return "./brute_force_relations/"
         else:
             raise Exception("You weren't sure!")
     else:
