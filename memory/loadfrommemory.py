@@ -47,4 +47,9 @@ start = time.time()
 equivalence = load_obj("equivalence")
 print ("Time to load: " + str(time.time() - start))
 
+
 len(equivalence)
+keys = list(equivalence.keys())
+
+for k in keys[0:1000]:
+    print (k + "~" + str(equivalence[k]))
