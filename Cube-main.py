@@ -284,6 +284,11 @@ moves_set = "basic_moves_relations"
 goal = 3674160
 root = ""
 
+# G=<U,F,R>
+moves_set = "basic_moves"
+goal = 3674160
+root = ""
+
 # # G = <U,F>
 # moves_set = "gen_2_moves_relations"
 # goal = 29160
