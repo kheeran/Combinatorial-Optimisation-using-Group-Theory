@@ -149,8 +149,8 @@ def record(unexplored, visited, equivalence, diameter_count, loop_iter, select):
         if visited.get(neighbourhood[edge]) == None:
             visited[neighbourhood[edge]] = (node, visited[node][1] + edge, diameter+1)
             unexplored.append(neighbourhood[edge])
-        else:
-            equivalence_relations(moves_set, visited, equivalence, neighbourhood, node, edge)
+        # else:
+        #     equivalence_relations(moves_set, visited, equivalence, neighbourhood, node, edge)
 
     return diameter, diameter_count, loop_iter
 
@@ -167,7 +167,7 @@ def full_search(select, visited, unexplored, equivalence, timings, diameter_coun
         # PROGRESS BAR
 
         if n % checkpoint == 0:
-            # print ("Equivalence not saving")
+            print ("Equivalence not saving")
             print (str((n//checkpoint)*10) + "% complete")
             runtime = round(time.time() - start,2)
             timings.append(runtime)
