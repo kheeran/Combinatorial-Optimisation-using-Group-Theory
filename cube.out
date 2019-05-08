@@ -1,35 +1,45 @@
-Node: node31-034
-Time: Sat May 4 01:03:32 BST 2019
-Job ID: 8380737.master.cm.cluster
+Node: node46-017
+Time: Tue May 7 22:04:37 BST 2019
+Job ID: 8388058.master.cm.cluster
+Equivalence not saving
 0% complete
 Runtime: 0.0 sec(s)
 
+Equivalence not saving
 10% complete
-Runtime: 153.12 sec(s)
+Runtime: 143.28 sec(s)
 
+Equivalence not saving
 20% complete
-Runtime: 472.02 sec(s)
+Runtime: 450.86 sec(s)
 
+Equivalence not saving
 30% complete
-Runtime: 871.61 sec(s)
+Runtime: 840.54 sec(s)
 
+Equivalence not saving
 40% complete
-Runtime: 1293.91 sec(s)
+Runtime: 1252.06 sec(s)
 
+Equivalence not saving
 50% complete
-Runtime: 1694.45 sec(s)
+Runtime: 1643.21 sec(s)
 
+Equivalence not saving
 60% complete
-Runtime: 2045.47 sec(s)
+Runtime: 1986.09 sec(s)
 
+Equivalence not saving
 70% complete
-Runtime: 2337.67 sec(s)
+Runtime: 2267.39 sec(s)
 
+Equivalence not saving
 80% complete
-Runtime: 2557.12 sec(s)
+Runtime: 2478.04 sec(s)
 
+Equivalence not saving
 90% complete
-Runtime: 2703.99 sec(s)
+Runtime: 2615.1 sec(s)
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Diameter: 11
@@ -44,11 +54,11 @@ Number of Configs: 3674160
 Remaining no. of Configs: 0
 Nodes visited: 3674160
 Total explored: 3674160
-Number of shortest moves with equivalence relations: 3432555
+Number of shortest moves with equivalence relations: 0
 Timings:
-[0.0, 153.12, 472.02, 871.61, 1293.91, 1694.45, 2045.47, 2337.67, 2557.12, 2703.99, 2776.749069213867]
-Runtime: 2776.74906921
+[0.0, 143.28, 450.86, 840.54, 1252.06, 1643.21, 1986.09, 2267.39, 2478.04, 2615.1, 2677.5978779792786]
+Runtime: 2677.59787798
 No. of main loop iteration ratio check (number of basic moves): 9
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-|R| = 16225665
+|R| = 0
 COMPLETE!
