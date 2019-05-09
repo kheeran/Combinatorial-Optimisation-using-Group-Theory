@@ -68,9 +68,6 @@ def neighbourhoods(config, select):
     if select == "G3":
         return {'U2': _U(_U(config)),'F2' : _F(_F(config)),'R2' : _R(_R(config))}
 
-    if select == "G3_all":
-        return {'U2': _U(_U(config)), 'F2' : _F(_F(config)), 'R2' : _R(_R(config)), 'D2': _D(_D(config)), 'B2' : _B(_B(config)), 'L2' : _L(_L(config))}
-
     if select == "gen_2_moves":
         return {'U1' : _U(config), 'U2': _U(_U(config)), 'U3': _U(_U(_U(config))), 'F1':_F(config), 'F2' : _F(_F(config)), 'F3' : _F(_F(_F(config)))}
 
@@ -206,7 +203,7 @@ def full_search(select, visited, unexplored, equivalence, timings, diameter_coun
 
 def thistlewaite_algo(goal, save, root):
     visited, unexplored = init_dict(root)
-    equivalence = []
+    equivalence = {}
     timings = []
     diameter_count = np.zeros(50,  np.int32)
     loop_iter = 0
@@ -237,13 +234,13 @@ def thistlewaite_algo(goal, save, root):
 
         timings, diameter_count, n = full_search("G0", visited, unexplored, equivalence, timings, diameter_count, loop_iter, n, start)
 
-        # Saving Objects
-        if save:
-            save_obj(visited, "visited")
-            save_obj(diameter_count, "diameter_count")
-            save_obj(timings, "timings")
+    # Saving Objects
+    if save:
+        save_obj(visited, "visited")
+        # save_obj(diameter_count, "diameter_count")
+        save_obj(timings, "timings")
 
-        print ("COMPLETE!")
+    print ("COMPLETE!")
 
 # MAIN BRUTE FORCE ALGO with EQUIVALENCE RELATIONS
 
@@ -291,14 +288,14 @@ def brute_force_relations(goal, save, root, moves_set):
 # root = ""
 
 # G=<U,F,R>
-# moves_set = "basic_moves"
-# goal = 3674160
-# root = ""
-
-
 moves_set = "basic_moves"
-goal = 88179840
-root = "all"
+goal = 3674160
+root = ""
+
+
+# moves_set = "basic_moves"
+# goal = 88179840
+# root = "all"
 
 # G=<U,F,R>
 # moves_set = "basic_moves_quarter"
@@ -318,9 +315,9 @@ root = "all"
 # Save objects for re-use?
 save = False
 
-# thistlewaite_algo(goal, save, root)
+thistlewaite_algo(goal, save, root)
 
-brute_force_relations(goal, save, root, moves_set)
+# brute_force_relations(goal, save, root, moves_set)
 
 
 
