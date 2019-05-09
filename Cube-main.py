@@ -146,7 +146,7 @@ def record(unexplored, visited, equivalence, diameter_count, loop_iter, select):
     node = unexplored.pop(0)
     diameter = visited[node][2]
     diameter_count[int(diameter)] = diameter_count[int(diameter)] + 1
-    neighbourhood = neighbourhoods(node, select) # neighbourhood_basic_moves(node), neighbourhood_gen_2_moves(node), neighbourhood_symmetry_moves(node)
+    neighbourhood = neighbourhoods(node, select)
     for edge in neighbourhood:
         loop_iter += 1
         if visited.get(neighbourhood[edge]) == None:
@@ -216,6 +216,8 @@ def thistlewaite_algo(goal, save, root):
     # diameter_count_G3 = diameter_count
     visited, unexplored = init_dict_visited(visited)
     diameter_count = np.zeros(52,  np.int32)
+    loop_iter = 0
+    n=0
 
     timings, diameter_count, n = full_search("G2", visited, unexplored, equivalence, timings, diameter_count, loop_iter, n, start)
 
@@ -223,6 +225,8 @@ def thistlewaite_algo(goal, save, root):
     # diameter_count_G2 = diameter_count
     visited, unexplored = init_dict_visited(visited)
     diameter_count = np.zeros(52,  np.int32)
+    loop_iter = 0
+    n=0
 
     timings, diameter_count, n = full_search("G1", visited, unexplored, equivalence, timings, diameter_count, loop_iter, n, start)
 
@@ -231,7 +235,9 @@ def thistlewaite_algo(goal, save, root):
         # diameter_count_G1 = diameter_count
         visited, unexplored = init_dict_visited(visited)
         diameter_count = np.zeros(52,  np.int32)
-
+        loop_iter = 0
+        n=0
+        
         timings, diameter_count, n = full_search("G0", visited, unexplored, equivalence, timings, diameter_count, loop_iter, n, start)
 
     # Saving Objects
