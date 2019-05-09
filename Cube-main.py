@@ -234,13 +234,13 @@ def thistlewaite_algo(goal, save, root):
 
         timings, diameter_count, n = full_search("G0", visited, unexplored, equivalence, timings, diameter_count, loop_iter, n, start)
 
-        # Saving Objects
-        if save:
-            save_obj(visited, "visited")
-            save_obj(diameter_count, "diameter_count")
-            save_obj(timings, "timings")
+    # Saving Objects
+    if save:
+        save_obj(visited, "visited")
+        # save_obj(diameter_count, "diameter_count")
+        save_obj(timings, "timings")
 
-        print ("COMPLETE!")
+    print ("COMPLETE!")
 
 # MAIN BRUTE FORCE ALGO with EQUIVALENCE RELATIONS
 
