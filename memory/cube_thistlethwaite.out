@@ -1,0 +1,91 @@
+Node: node47-019
+Time: Thu May 9 14:24:44 BST 2019
+Job ID: 8391520.master.cm.cluster
+0% complete
+Runtime: 0.0 sec(s)
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Diameter: 4
+[1 3 6 9 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0]
+24
+Number of Configs: 24
+Remaining no. of Configs: 3674136
+Nodes visited: 24
+Total explored: 24
+Number of shortest moves with equivalence relations: 16
+Timings:
+[0.0, 0.0009031295776367188]
+Runtime: 0.000903129577637
+No. of main loop iteration ratio check (number of basic moves): 3
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+0% complete
+Runtime: 0.0 sec(s)
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Diameter: 11
+[  24   24   48  144  216  600  528  624  816 1152  624  240    0    0
+    0    0    0    0    0    0    0    0    0    0    0    0    0    0
+    0    0    0    0    0    0    0    0    0    0    0    0    0    0
+    0    0    0    0    0    0    0    0    0    0]
+5040
+Number of Configs: 5040
+Remaining no. of Configs: 3669120
+Nodes visited: 5040
+Total explored: 5040
+Number of shortest moves with equivalence relations: 1468
+Timings:
+[0.0, 0.0009031295776367188, 0.0, 0.29647397994995117]
+Runtime: 0.29647397995
+No. of main loop iteration ratio check (number of basic moves): 5
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+0% complete
+Runtime: 0.3 sec(s)
+
+10% complete
+Runtime: 109.74 sec(s)
+
+20% complete
+Runtime: 329.99 sec(s)
+
+30% complete
+Runtime: 622.82 sec(s)
+
+40% complete
+Runtime: 945.14 sec(s)
+
+50% complete
+Runtime: 1264.1 sec(s)
+
+60% complete
+Runtime: 1557.14 sec(s)
+
+70% complete
+Runtime: 1805.67 sec(s)
+
+80% complete
+Runtime: 2005.4 sec(s)
+
+90% complete
+Runtime: 2143.41 sec(s)
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Diameter: 9
+[   5040    5040   20160   75600  277200  685440 1370880 1018080  206640
+   10080       0       0       0       0       0       0       0       0
+       0       0       0       0       0       0       0       0       0
+       0       0       0       0       0       0       0       0       0
+       0       0       0       0       0       0       0       0       0
+       0       0       0       0       0       0       0]
+3674160
+Number of Configs: 3674160
+Remaining no. of Configs: 0
+Nodes visited: 3674160
+Total explored: 3674160
+Number of shortest moves with equivalence relations: 7946
+Timings:
+[0.0, 0.0009031295776367188, 0.0, 0.29647397994995117, 0.3, 109.74, 329.99, 622.82, 945.14, 1264.1, 1557.14, 1805.67, 2005.4, 2143.41, 2211.450402021408]
+Runtime: 2211.45040202
+No. of main loop iteration ratio check (number of basic moves): 7
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+COMPLETE!
