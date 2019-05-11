@@ -325,9 +325,9 @@ root = ""
 # Save objects for re-use?
 save = False
 
-thistlewaite_algo(goal, save, root)
+# thistlewaite_algo(goal, save, root)
 
-# brute_force_relations(goal, save, root, moves_set)
+brute_force_relations(goal, save, root, moves_set)
 
 
 
