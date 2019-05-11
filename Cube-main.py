@@ -230,7 +230,7 @@ def thistlewaite_algo(goal, save, root):
 
     timings, diameter_count, n = full_search("G1", visited, unexplored, equivalence, timings, diameter_count, loop_iter, n, start)
 
-    if sum(diameter_count) < goal:
+    if sum(diameter_count) < goal*2:
         # visited_G1 = visited
         # diameter_count_G1 = diameter_count
         visited, unexplored = init_dict_visited(visited)
@@ -299,9 +299,9 @@ def brute_force_relations(goal, save, root, moves_set):
 # root = ""
 
 # G=<U2,F,R>
-moves_set = "G1"
-goal = 3674160
-root = ""
+# moves_set = "G1"
+# goal = 24
+# root = ""
 
 # moves_set = "basic_moves"
 # goal = 88179840
@@ -325,9 +325,9 @@ root = ""
 # Save objects for re-use?
 save = False
 
-# thistlewaite_algo(goal, save, root)
+thistlewaite_algo(goal, save, root)
 
-brute_force_relations(goal, save, root, moves_set)
+# brute_force_relations(goal, save, root, moves_set)
 
 
 
