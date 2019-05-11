@@ -118,9 +118,9 @@ def load_obj(name ):
 
 # SIMPLIFYING THE DEFINING RELATIONS ALGO
 
-def equivalence_relations(moves_set, visited, equivalence, neighbourhood, node, edge):
+def equivalence_relations(select, visited, equivalence, neighbourhood, node, edge):
 
-    if "relations" in moves_set:
+    if "relations" in select:
         jump = 1
     else:
         jump = 2
@@ -153,7 +153,7 @@ def record(unexplored, visited, equivalence, diameter_count, loop_iter, select):
             visited[neighbourhood[edge]] = (node, visited[node][1] + edge, diameter+1)
             unexplored.append(neighbourhood[edge])
         else:
-            equivalence_relations(moves_set, visited, equivalence, neighbourhood, node, edge)
+            equivalence_relations(select, visited, equivalence, neighbourhood, node, edge)
 
     return diameter, diameter_count, loop_iter
 
@@ -310,7 +310,7 @@ def brute_force_relations(goal, save, root, moves_set):
 # G=<U,F,R>
 # moves_set = "basic_moves_quarter"
 goal = 3674160
-# root = ""
+root = ""
 
 # # G = <U,F>
 # moves_set = "gen_2_moves_relations"
