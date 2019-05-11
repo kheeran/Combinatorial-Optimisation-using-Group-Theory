@@ -44,12 +44,23 @@ def find_initial_nodes():
 
 # MAIN
 start = time.time()
-equivalence = load_obj("equivalence")
+equivalence = load_obj("visited")
 print ("Time to load: " + str(time.time() - start))
 
 
 print (len(equivalence))
 keys = list(equivalence.keys())
 
-for k in keys[0:1000]:
-    print (k + "~" + str(list(equivalence[k])))
+for k in keys:
+    if k == "0213456700000000":
+        print (equivalence[k])
+    if k == "0321456700000000":
+        print (equivalence[k])
+    if k == "0423156700000000":
+        print (equivalence[k])
+    if k == "0523416700000000":
+        print (equivalence[k])
+    if k == "0623451700000000":
+        print (equivalence[k])
+    if k == "0723456100000000":
+        print (equivalence[k])
