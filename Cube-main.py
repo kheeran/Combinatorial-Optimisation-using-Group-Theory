@@ -309,7 +309,7 @@ def brute_force_relations(goal, save, root, moves_set):
 
 # G=<U,F,R>
 # moves_set = "basic_moves_quarter"
-# goal = 3674160
+goal = 3674160
 # root = ""
 
 # # G = <U,F>
