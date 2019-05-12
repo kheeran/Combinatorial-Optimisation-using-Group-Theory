@@ -51,19 +51,27 @@ print ("Time to load: " + str(time.time() - start))
 print (len(equivalence))
 keys = list(equivalence.keys())
 
+
 for k in keys:
-    if k == "0213456700000000":
+    if "01234567" in k:
         print (equivalence[k])
-    if k == "0321456700000000":
-        print (equivalence[k])
-    if k == "0423156700000000":
-        print (equivalence[k])
-    if k == "0523416700000000":
-        print (equivalence[k])
-    if k == "0623451700000000":
-        print (equivalence[k])
-    if k == "0723456100000000":
-        print (equivalence[k])
+
+
+
+
+# for k in keys:
+#     if k = "0213456700000000":
+#         print (equivalence[k])
+#     if k == "0321456700000000":
+#         print (equivalence[k])
+#     if k == "0423156700000000":
+#         print (equivalence[k])
+#     if k == "0523416700000000":
+#         print (equivalence[k])
+#     if k == "0623451700000000":
+#         print (equivalence[k])
+#     if k == "0723456100000000":
+#         print (equivalence[k])
 
 # ('0612435700210210', 'RRRUUUFRFUUFURRURFR', 19)
 # ('0362415700210210', 'RUUUFRFUUFURRURFRRR', 19)
