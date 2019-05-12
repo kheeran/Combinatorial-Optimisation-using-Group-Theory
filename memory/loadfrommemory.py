@@ -54,7 +54,7 @@ keys = list(equivalence.keys())
 
 for k in keys:
     if "01234567" in k:
-        print (equivalence[k])
+        print (str(k) + "-> " str(equivalence[k]))
 
 
 
