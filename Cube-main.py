@@ -250,7 +250,7 @@ def thistlewaite_algo(goal, save, root):
 
 # MAIN BRUTE FORCE ALGO with EQUIVALENCE RELATIONS
 
-def brute_force_relations(goal, save, root, moves_set):
+def brute_force_relations(goal, save, root, select):
 
     visited, unexplored = init_dict(root)
     equivalence = {}
@@ -260,7 +260,7 @@ def brute_force_relations(goal, save, root, moves_set):
     n=0
     start = time.time()
 
-    timings, diameter_count, n = full_search(moves_set, visited, unexplored, equivalence, timings, diameter_count, loop_iter, n, start)
+    timings, diameter_count, n = full_search(select, visited, unexplored, equivalence, timings, diameter_count, loop_iter, n, start)
 
     keys = list(equivalence.keys())
     unique_relations = 0
@@ -284,41 +284,41 @@ def brute_force_relations(goal, save, root, moves_set):
 # MAIN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # G=<U,D,F,B,R,L>
-# moves_set = "basic_moves_all"
+# select = "basic_moves_all"
 # goal = 3674160*24
 # root = "all"
 
 # G=<U,F,R>
-# moves_set = "basic_moves_relations"
+# select = "basic_moves_relations"
 # goal = 3674160
 # root = ""
 
 # G=<U,F,R>
-# moves_set = "basic_moves"
-# goal = 3674160
-# root = ""
+select = "basic_moves"
+goal = 3674160
+root = ""
 
 # G=<U2,F,R>
-# moves_set = "G1"
+# select = "G1"
 # goal = 24
 # root = ""
 
-# moves_set = "basic_moves"
+# select = "basic_moves"
 # goal = 88179840
 # root = "all"
 
 # G=<U,F,R>
-# moves_set = "basic_moves_quarter"
-goal = 3674160
-root = ""
+# select = "basic_moves_quarter"
+# goal = 3674160
+# root = ""
 
 # # G = <U,F>
-# moves_set = "gen_2_moves_relations"
+# select = "gen_2_moves_relations"
 # goal = 29160
 # root = ""
 
 # # G=Symmetry
-# moves_set = "symmetry_moves"
+# select = "symmetry_moves"
 # goal = 24
 # root = ""
 
@@ -327,7 +327,7 @@ save = False
 
 thistlewaite_algo(goal, save, root)
 
-# brute_force_relations(goal, save, root, moves_set)
+# brute_force_relations(goal, save, root, select)
 
 
 
