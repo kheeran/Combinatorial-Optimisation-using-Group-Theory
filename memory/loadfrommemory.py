@@ -54,7 +54,13 @@ keys = list(equivalence.keys())
 
 for k in keys:
     if "01234567" in k:
-        print (str(k) + "-> " + str(equivalence[k]))
+        orient = k[8:16]
+        count = 0
+        for i in range (8,16):
+            if orient[i] == 0:
+                count += 1
+        if count == 6:
+            print (str(k) + "-> " + str(equivalence[k]))
 
 
 
