@@ -267,7 +267,9 @@ def brute_force_relations(goal, save, root, select):
     for k in keys:
         equivalence[k] = set(equivalence[k])
         unique_relations += len(equivalence[k])
-        # print(k + "~" + str(equivalence[k]))
+
+    for k in keys[0:100]:
+        print(k + "~" + str(equivalence[k]))
 
     print ("|R| = " + str(unique_relations))
 
