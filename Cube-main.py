@@ -289,14 +289,14 @@ def brute_force_relations(goal, save, root, select):
 # root = "all"
 
 # G=<U,F,R>
-# select = "basic_moves_relations"
-# goal = 3674160
-# root = ""
-
-# G=<U,F,R>
-select = "basic_moves"
+select = "basic_moves_relations"
 goal = 3674160
 root = ""
+
+# G=<U,F,R>
+# select = "basic_moves"
+# goal = 3674160
+# root = ""
 
 # G=<U2,F,R>
 # select = "G1"
@@ -312,7 +312,7 @@ root = ""
 # goal = 3674160
 # root = ""
 
-# # G = <U,F>
+# G = <U,F>
 # select = "gen_2_moves_relations"
 # goal = 29160
 # root = ""
@@ -323,11 +323,11 @@ root = ""
 # root = ""
 
 # Save objects for re-use?
-save = False
+save = True
 
-thistlewaite_algo(goal, save, root)
+# thistlewaite_algo(goal, save, root)
 
-# brute_force_relations(goal, save, root, select)
+brute_force_relations(goal, save, root, select)
 
 
 
