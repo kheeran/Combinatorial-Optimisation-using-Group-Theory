@@ -44,7 +44,7 @@ def find_initial_nodes():
 
 # MAIN
 start = time.time()
-equivalence = load_obj("visited")
+equivalence = load_obj("equivalence")
 print ("Time to load: " + str(time.time() - start))
 
 
@@ -52,15 +52,8 @@ print (len(equivalence))
 keys = list(equivalence.keys())
 
 
-for k in keys:
-    if "01234567" in k:
-        orient = k[8:16]
-        count = 0
-        for i in range (0,8):
-            if orient[i] == "0":
-                count += 1
-        if count == 6:
-            print (str(k) + "-> " + str(equivalence[k]))
+for k in keys[0:100]:
+        print (str(k) + " ~" + str(equivalence[k]))
 
 
 
